@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="center" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment_1.Controller">
+    <children>
+        <ListView id="listView" fx:id="listView" />
+        <ListView id="employeeListView" fx:id="employeeListView" />
+    </children>
+</HBox>
