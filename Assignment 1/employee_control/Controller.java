@@ -1,4 +1,4 @@
-package assignment_1;
+package employee_control;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSnackbar;

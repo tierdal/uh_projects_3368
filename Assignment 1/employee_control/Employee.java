@@ -1,4 +1,4 @@
-package assignment_1;
+package employee_control;
 
 public interface Employee
 {
