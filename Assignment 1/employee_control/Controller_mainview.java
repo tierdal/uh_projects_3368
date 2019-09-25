@@ -3,13 +3,10 @@ package employee_control;
 import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -19,8 +16,6 @@ import java.util.ResourceBundle;
 public class Controller_mainview implements Initializable {
 
     @FXML private HBox root;
-    @FXML private ListView<String> listView;
-    @FXML private ListView<class_UHInterfaceEmployee> employeeListView;
     @FXML JFXListView<class_UHInterfaceEmployee> listview_employee;
     @FXML JFXButton button_exit;
     @FXML JFXButton button_save;
@@ -34,11 +29,9 @@ public class Controller_mainview implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //ObservableList<String> items = listView.getItems();
 
         employeeList = FXCollections.observableArrayList();
         generateEmployees();
-//        employeeListView.setItems(employeeList);
         listview_employee.setItems(employeeList);
 
         Label label = new Label();
@@ -99,7 +92,17 @@ public class Controller_mainview implements Initializable {
 
     @FXML public void btn_delete_action(){
         System.out.println("Delete button click.");
-        //somefunction();
+        if (listview_employee.getSelectionModel().getSelectedItem() == null) {
+            System.out.println("No user selected.");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cannot delete user!");
+            alert.setHeaderText(null);
+            alert.setContentText("No user selected!");
+            alert.showAndWait();
+        } else {
+            employeeList.remove(listview_employee.getSelectionModel().getSelectedItem());
+            listview_employee.setItems(employeeList);
+        }
     }
 
     @FXML public void btn_exit_action(){
