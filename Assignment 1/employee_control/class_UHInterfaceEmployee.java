@@ -2,8 +2,8 @@ package employee_control;
 
 public class class_UHInterfaceEmployee implements interface_Employee, interface_Human {
     public String name;
-    public int id;
-    private boolean isActive;
+    public String id;
+    public boolean isActive;
 
     @Override
     public void hire()

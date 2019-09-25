@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("form_mainview.fxml"));
         primaryStage.setTitle("Employee Control");
-        primaryStage.setScene(new Scene(root, 800, 300));
+        primaryStage.setScene(new Scene(root, 800, 400));
         primaryStage.show();
 
     }
