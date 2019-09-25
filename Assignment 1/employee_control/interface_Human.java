@@ -1,6 +1,5 @@
 package employee_control;
 
-public interface Human {
-
+public interface interface_Human {
     public void die();
 }

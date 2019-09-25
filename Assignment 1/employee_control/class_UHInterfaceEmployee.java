@@ -1,7 +1,6 @@
 package employee_control;
 
-public class UHEmployee implements Employee, Human
-{
+public class class_UHInterfaceEmployee implements interface_Employee, interface_Human {
     public String name;
     public int id;
     private boolean isActive;
@@ -19,15 +18,12 @@ public class UHEmployee implements Employee, Human
     }
 
     @Override
-    public void die() {isActive = false;
-
-    }
+    public void die() {isActive = false; }
 
     @Override
     public String toString()
     {
         return name;
     }
-
 
 }

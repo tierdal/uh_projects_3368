@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Assignment 1/employee_control/mainview.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("form_mainview.fxml"));
         primaryStage.setTitle("Employee Control");
         primaryStage.setScene(new Scene(root, 800, 300));
         primaryStage.show();

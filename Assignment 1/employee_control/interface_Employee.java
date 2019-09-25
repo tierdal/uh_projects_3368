@@ -1,9 +1,7 @@
 package employee_control;
 
-public interface Employee
-{
+public interface interface_Employee {
     public void hire();
     public void fire();
-
 }
 

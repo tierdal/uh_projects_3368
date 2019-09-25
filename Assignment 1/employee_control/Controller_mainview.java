@@ -14,32 +14,21 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable
-{
-    @FXML
-    private HBox root;
+public class Controller_mainview implements Initializable {
 
-    @FXML
-    private ListView<String> listView;
+    @FXML private HBox root;
+    @FXML private ListView<String> listView;
+    @FXML private ListView<class_UHInterfaceEmployee> employeeListView;
+    @FXML JFXListView<class_UHInterfaceEmployee> fancyEmployeeListView;
+    @FXML Button button;
 
-    @FXML
-    private ListView<UHEmployee> employeeListView;
-
-    @FXML
-    JFXListView<UHEmployee> fancyEmployeeListView;
-
-    @FXML
-    Button button;
-
-    private ObservableList<UHEmployee> employeeList;
+    private ObservableList<class_UHInterfaceEmployee> employeeList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //ObservableList<String> items = listView.getItems();
-
 
         employeeList = FXCollections.observableArrayList();
         generateEmployees();
@@ -56,32 +45,23 @@ public class Controller implements Initializable
                 bar.enqueue(new JFXSnackbar.SnackbarEvent(label));
             }
         });
-
     }
 
-
-
     private void generateEmployees() {
-        for(int i=0;i<10;i++)
-        {
-            if(i%2 == 0)
-            {
-                Staff newStaff = new Staff();
+        for(int i=0;i<10;i++) {
+            if(i%2 == 0) {
+                class_Staff newStaff = new class_Staff();
                 newStaff.id = i;
                 newStaff.name = "Staff " + i;
                 newStaff.hire();
                 employeeList.add(newStaff);
-            }
-            else
-            {
-                Faculty newFaculty = new Faculty();
+            } else {
+                class_Faculty newFaculty = new class_Faculty();
                 newFaculty.id = i;
                 newFaculty.name = "Faculty " + i;
                 newFaculty.hire();
                 employeeList.add(newFaculty);
             }
-
-
         }
     }
 
