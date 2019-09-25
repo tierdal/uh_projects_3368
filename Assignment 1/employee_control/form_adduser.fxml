@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employee_control.Controller_adduser">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="300.0">
+            <children>
+                <HBox layoutX="10.0" layoutY="138.0" prefHeight="32.0" prefWidth="300.0" />
+                <HBox prefHeight="32.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Name: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="30.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="field_adduser_name" prefHeight="30.0" prefWidth="195.0" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="10.0" prefHeight="32.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="ID: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="28.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="field_adduser_id" prefHeight="30.0" prefWidth="195.0" text="AutoGenerate" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="42.0" prefHeight="32.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Type: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="29.0" prefWidth="202.0">
+                            <children>
+                                <ComboBox fx:id="field_adduser_type" prefHeight="30.0" prefWidth="195.0" visibleRowCount="2">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Staff" />
+                                            <String fx:value="Faculty" />
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="74.0" prefHeight="32.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="29.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Weight: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false">
+                            <children>
+                                <TextField fx:id="field_adduser_weight" prefHeight="30.0" prefWidth="195.0" text="Department / Access Level" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="106.0" prefHeight="32.0" prefWidth="300.0" />
+                <HBox layoutX="10.0" layoutY="138.0" prefHeight="32.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Button fx:id="btn_adduser_submit" defaultButton="true" mnemonicParsing="false" onAction="#btn_adduser_submit_action" prefHeight="54.0" prefWidth="100.0" text="Submit" textAlignment="CENTER" />
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Button fx:id="btn_adduser_cancel" alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#btn_adduser_cancel_action" prefHeight="59.0" prefWidth="100.0" text="Cancel" textAlignment="CENTER" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
