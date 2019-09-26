@@ -9,17 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+
 public class Controller_mainview implements Initializable {
 
-    @FXML private HBox root;
+    //@FXML private HBox root;
     @FXML JFXListView<class_UHInterfaceEmployee> listview_employee;
     @FXML JFXButton button_exit;
     @FXML JFXButton button_save;
@@ -29,7 +29,15 @@ public class Controller_mainview implements Initializable {
     @FXML JFXTextField field_name;
     @FXML JFXCheckBox checkbox_active;
 
-    private ObservableList<class_UHInterfaceEmployee> employeeList;
+    public void helloWorld (){
+        System.out.println("Hello World");
+    }
+
+    public void updateEmployeeList(){
+        System.out.println("YEET" + class_variables.employeeList);
+        listview_employee.setItems(class_variables.employeeList);
+        listview_employee.refresh();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,9 +45,10 @@ public class Controller_mainview implements Initializable {
         //Init the employee ID counter
         class_variables.employee_id_counter = class_variables.employee_id_counter + 1;
 
-        employeeList = FXCollections.observableArrayList();
+        class_variables.employeeList = FXCollections.observableArrayList();
+
         generateEmployees();
-        listview_employee.setItems(employeeList);
+        listview_employee.setItems(class_variables.employeeList);
 
         /*Label label = new Label();
         label.setText("HELLO");
@@ -69,13 +78,13 @@ public class Controller_mainview implements Initializable {
                 newStaff.id = filler + counter;
                 newStaff.name = "Staff " + counter;
                 newStaff.hire();
-                employeeList.add(newStaff);
+                class_variables.employeeList.add(newStaff);
             } else {
                 class_Faculty newFaculty = new class_Faculty();
                 newFaculty.id = filler + counter;
                 newFaculty.name = "Faculty " + counter;
                 newFaculty.hire();
-                employeeList.add(newFaculty);
+                class_variables.employeeList.add(newFaculty);
             }
         }
     }
@@ -110,8 +119,8 @@ public class Controller_mainview implements Initializable {
             alert.setContentText("No user selected!");
             alert.showAndWait();
         } else {
-            employeeList.remove(listview_employee.getSelectionModel().getSelectedItem());
-            listview_employee.setItems(employeeList);
+            class_variables.employeeList.remove(listview_employee.getSelectionModel().getSelectedItem());
+            listview_employee.setItems(class_variables.employeeList);
             list_select_populate_form();
         }
     }
