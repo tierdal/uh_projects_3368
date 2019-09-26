@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public int id_counter;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("form_mainview.fxml"));

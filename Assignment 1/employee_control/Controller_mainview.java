@@ -4,12 +4,16 @@ import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,16 +34,19 @@ public class Controller_mainview implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //Init the employee ID counter
+        class_variables.employee_id_counter = class_variables.employee_id_counter + 1;
+
         employeeList = FXCollections.observableArrayList();
         generateEmployees();
         listview_employee.setItems(employeeList);
 
-        Label label = new Label();
+        /*Label label = new Label();
         label.setText("HELLO");
 
         JFXSnackbar bar = new JFXSnackbar(root);
 
-        /*button.setOnAction(new EventHandler<ActionEvent>() {
+        button.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 bar.enqueue(new JFXSnackbar.SnackbarEvent(label));
             }
@@ -85,9 +92,12 @@ public class Controller_mainview implements Initializable {
         //somefunction();
     }
 
-    @FXML public void btn_add_action(){
-        System.out.println("Add button click.");
-        //somefunction();
+    @FXML public void btn_add_action() throws IOException {
+        Stage adduserStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("form_adduser.fxml"));
+        adduserStage.setTitle("Add User");
+        adduserStage.setScene(new Scene(root, 300, 200));
+        adduserStage.show();
     }
 
     @FXML public void btn_delete_action(){
@@ -102,6 +112,7 @@ public class Controller_mainview implements Initializable {
         } else {
             employeeList.remove(listview_employee.getSelectionModel().getSelectedItem());
             listview_employee.setItems(employeeList);
+            list_select_populate_form();
         }
     }
 
@@ -110,6 +121,7 @@ public class Controller_mainview implements Initializable {
         System.out.println("Exit button click.");
         stage.hide();
     }
+
 }
 
 
