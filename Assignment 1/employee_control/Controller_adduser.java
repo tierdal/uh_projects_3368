@@ -22,9 +22,13 @@ public class Controller_adduser {
     @FXML public JFXComboBox combo_adduser_department;
     @FXML public JFXComboBox combo_adduser_accesslevel;
 
+    public ObservableList<class_UHInterfaceEmployee> employeeListLocal;
+
     @FXML public void btn_adduser_submit_action() throws IOException {
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
         System.out.println("Add user button click.");
+
+
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("form_mainview.fxml"));
         Parent sceneFXML = loader.load();
@@ -51,13 +55,14 @@ public class Controller_adduser {
                 if (employee_department == null) {
                     //alert
                 } else {
-                    ctrl.helloWorld();
                     class_Faculty newFaculty = new class_Faculty();
                     newFaculty.id = employee_id;
                     newFaculty.name = employee_name;
                     newFaculty.hire();
                     class_variables.employeeList.add(newFaculty);
-                    ctrl.updateEmployeeList();
+                    ctrl.listview_employee.setItems(class_variables.employeeList);
+                    ctrl.listview_employee.refresh();
+                    System.out.println("LIST: " + class_variables.employeeList);
                 }
             } else if (employee_type == "Faculty") {
                 //staff
