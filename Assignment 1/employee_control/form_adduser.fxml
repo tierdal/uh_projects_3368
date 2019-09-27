@@ -3,14 +3,13 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employee_control.Controller_adduser">
     <children>
         <VBox prefHeight="200.0" prefWidth="300.0">
@@ -53,7 +52,7 @@
                         </VBox>
                         <VBox fillWidth="false" prefHeight="29.0" prefWidth="202.0">
                             <children>
-                                <JFXComboBox fx:id="combo_adduser_type" prefWidth="200.0">
+                                <JFXComboBox fx:id="combo_adduser_type" onAction="#combo_type_update" prefWidth="200.0">
                                         <items>
                                             <FXCollections fx:factory="observableArrayList">
                                                 <String fx:value="Staff" />
@@ -74,12 +73,12 @@
                         </VBox>
                         <VBox fillWidth="false">
                             <children>
-                                <JFXComboBox fx:id="combo_adduser_department" prefWidth="200.0">
+                                <JFXComboBox fx:id="combo_adduser_department" disable="true" prefWidth="200.0">
                                     <items>
                                         <FXCollections fx:factory="observableArrayList">
-                                            <String fx:value="Apple" />
-                                            <String fx:value="Orange" />
-                                            <String fx:value="Banana" />
+                                            <String fx:value="Computer Sciences" />
+                                            <String fx:value="History" />
+                                            <String fx:value="Mathematics" />
                                         </FXCollections>
                                     </items>
                                 </JFXComboBox>
@@ -96,12 +95,14 @@
                   </VBox>
                   <VBox fillWidth="false">
                      <children>
-                        <JFXComboBox fx:id="combo_adduser_accesslevel" prefWidth="200.0">
+                        <JFXComboBox fx:id="combo_adduser_accesslevel" disable="true" prefWidth="200.0">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="Apple" />
-                                    <String fx:value="Orange" />
-                                    <String fx:value="Banana" />
+                                    <String fx:value="1" />
+                                    <String fx:value="2" />
+                                    <String fx:value="3" />
+                                    <String fx:value="4" />
+                                    <String fx:value="5" />
                                 </FXCollections>
                             </items>
                         </JFXComboBox>

@@ -123,12 +123,11 @@
                </VBox>
                <VBox prefHeight="25.0" prefWidth="350.0">
                   <children>
-                         <JFXComboBox fx:id="combo_type" prefWidth="350.0" visibleRowCount="2">
+                         <JFXComboBox fx:id="combo_type" prefWidth="350.0">
                              <items>
                                  <FXCollections fx:factory="observableArrayList">
-                                     <String fx:value="Apple" />
-                                     <String fx:value="Orange" />
-                                     <String fx:value="Banana" />
+                                     <String fx:value="Staff" />
+                                     <String fx:value="Facutly" />
                                  </FXCollections>
                              </items>
                         <VBox.margin>
@@ -143,7 +142,7 @@
             <children>
                <VBox prefHeight="25.0" prefWidth="150.0">
                   <children>
-                     <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="Department: ">
+                     <Label alignment="CENTER_RIGHT" disable="true" prefHeight="25.0" prefWidth="150.0" text="Department: " visible="false">
                         <VBox.margin>
                            <Insets left="50.0" />
                         </VBox.margin>
@@ -155,12 +154,12 @@
                </VBox>
                <VBox prefHeight="25.0" prefWidth="350.0">
                   <children>
-                     <JFXComboBox fx:id="combo_department" prefWidth="350.0" visibleRowCount="2">
+                     <JFXComboBox fx:id="combo_department" disable="true" prefWidth="350.0" visible="false">
                         <items>
                            <FXCollections fx:factory="observableArrayList">
-                              <String fx:value="Apple" />
-                              <String fx:value="Orange" />
-                              <String fx:value="Banana" />
+                              <String fx:value="Computer Sciences" />
+                              <String fx:value="History" />
+                              <String fx:value="Mathematics" />
                            </FXCollections>
                         </items>
                         <VBox.margin>
@@ -175,7 +174,7 @@
             <children>
                <VBox prefHeight="25.0" prefWidth="150.0">
                   <children>
-                     <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="Access Level">
+                     <Label alignment="CENTER_RIGHT" disable="true" prefHeight="25.0" prefWidth="150.0" text="Access Level" visible="false">
                         <VBox.margin>
                            <Insets left="50.0" />
                         </VBox.margin>
@@ -187,12 +186,14 @@
                </VBox>
                <VBox prefHeight="25.0" prefWidth="350.0">
                   <children>
-                     <JFXComboBox fx:id="combo_access" prefWidth="350.0" visibleRowCount="2">
+                     <JFXComboBox fx:id="combo_access" disable="true" prefWidth="350.0" visible="false">
                         <items>
                            <FXCollections fx:factory="observableArrayList">
-                              <String fx:value="Apple" />
-                              <String fx:value="Orange" />
-                              <String fx:value="Banana" />
+                              <String fx:value="1" />
+                              <String fx:value="2" />
+                              <String fx:value="3" />
+                              <String fx:value="4" />
+                              <String fx:value="5" />
                            </FXCollections>
                         </items>
                         <VBox.margin>
@@ -208,7 +209,7 @@
                <VBox prefHeight="30.0" prefWidth="200.0" />
                <VBox prefHeight="30.0" prefWidth="150.0">
                   <children>
-                     <JFXButton fx:id="button_save" mnemonicParsing="false" onAction="#btn_save_action" prefHeight="30.0" prefWidth="150.0" text="Save" />
+                     <JFXButton fx:id="button_save" disable="true" mnemonicParsing="false" onAction="#btn_save_action" prefHeight="30.0" prefWidth="150.0" text="Save" visible="false" />
                   </children>
                </VBox>
                <VBox prefHeight="30.0" prefWidth="150.0">

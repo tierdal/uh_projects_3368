@@ -23,6 +23,9 @@ public class Controller_mainview implements Initializable {
     @FXML JFXTextField field_id;
     @FXML JFXTextField field_name;
     @FXML JFXCheckBox checkbox_active;
+    @FXML JFXComboBox combo_type;
+    @FXML JFXComboBox combo_department;
+    @FXML JFXComboBox combo_access;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,12 +55,16 @@ public class Controller_mainview implements Initializable {
                 class_Staff newStaff = new class_Staff();
                 newStaff.id = filler + counter;
                 newStaff.name = "Staff " + counter;
+                newStaff.type = "Staff";
+                newStaff.accessLevel = 1;
                 newStaff.hire();
                 class_variables.employeeList.add(newStaff);
             } else {
                 class_Faculty newFaculty = new class_Faculty();
                 newFaculty.id = filler + counter;
                 newFaculty.name = "Faculty " + counter;
+                newFaculty.type = "Faculty";
+                newFaculty.department = "History";
                 newFaculty.hire();
                 class_variables.employeeList.add(newFaculty);
             }
@@ -75,13 +82,8 @@ public class Controller_mainview implements Initializable {
             field_id.setText(listview_employee.getSelectionModel().getSelectedItem().id);
             field_name.setText(listview_employee.getSelectionModel().getSelectedItem().name);
             checkbox_active.setSelected(listview_employee.getSelectionModel().getSelectedItem().isActive);
+            combo_type.setValue(listview_employee.getSelectionModel().getSelectedItem().type);
         }
-    }
-
-    @FXML public void btn_save_action(){
-        System.out.println("Save button click.");
-        //this button is for editing the current selection - IS NOT YET IMPLEMENTED
-        //somefunction();
     }
 
     @FXML public void btn_add_action() throws IOException {
@@ -114,6 +116,12 @@ public class Controller_mainview implements Initializable {
         System.out.println("Exit button click.");
         stage.hide();
     }
+
+    /*@FXML public void btn_save_action(){
+        System.out.println("Save button click.");
+        //this button is for editing the current selection - IS NOT YET IMPLEMENTED
+        //somefunction();
+    }*/
 
 }
 
