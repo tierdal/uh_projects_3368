@@ -78,7 +78,7 @@ public class Controller_mainview implements Initializable {
             field_name.setText("");
             checkbox_active.setSelected(false);
         } else {
-            System.out.println("[" + listview_employee.getSelectionModel().getSelectedItem().id + "] " + listview_employee.getSelectionModel().getSelectedItem().name);
+            //System.out.println("[" + listview_employee.getSelectionModel().getSelectedItem().id + "] " + listview_employee.getSelectionModel().getSelectedItem().name);
             field_id.setText(listview_employee.getSelectionModel().getSelectedItem().id);
             field_name.setText(listview_employee.getSelectionModel().getSelectedItem().name);
             checkbox_active.setSelected(listview_employee.getSelectionModel().getSelectedItem().isActive);
@@ -95,9 +95,9 @@ public class Controller_mainview implements Initializable {
     }
 
     @FXML public void btn_delete_action(){
-        System.out.println("Delete button click.");
+        //System.out.println("Delete button click.");
         if (listview_employee.getSelectionModel().getSelectedItem() == null) {
-            System.out.println("No user selected.");
+            //System.out.println("No user selected.");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cannot delete user!");
             alert.setHeaderText(null);
@@ -107,13 +107,13 @@ public class Controller_mainview implements Initializable {
             class_variables.employeeList.remove(listview_employee.getSelectionModel().getSelectedItem());
             listview_employee.setItems(class_variables.employeeList);
             list_select_populate_form();
-            System.out.println(class_variables.employeeList);
+            //System.out.println(class_variables.employeeList);
         }
     }
 
     @FXML public void btn_exit_action(){
         Stage stage = (Stage) button_exit.getScene().getWindow();
-        System.out.println("Exit button click.");
+        //System.out.println("Exit button click.");
         stage.hide();
     }
 

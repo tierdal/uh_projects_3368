@@ -23,7 +23,7 @@ public class Controller_adduser {
 
     @FXML public void btn_adduser_submit_action() throws IOException {
         Stage stage = (Stage) btn_adduser_submit.getScene().getWindow();
-        System.out.println("Add user button click.");
+        //System.out.println("Add user button click.");
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("form_mainview.fxml"));
         Parent sceneFXML = loader.load();
@@ -35,10 +35,10 @@ public class Controller_adduser {
         String employee_department = String.valueOf(combo_adduser_department.getValue());
         String employee_accesslevel = String.valueOf(combo_adduser_accesslevel.getValue());
 
-        System.out.println(employee_id + ", " + employee_name + ", " + employee_type + ", " + employee_department + ", " + employee_accesslevel);
+        //System.out.println(employee_id + ", " + employee_name + ", " + employee_type + ", " + employee_department + ", " + employee_accesslevel);
 
         if (employee_name.equals("") | employee_type == null){
-            System.out.println("Please fill out all fields.");
+            //System.out.println("Please fill out all fields.");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Incomplete Form!");
             alert.setHeaderText(null);
@@ -48,7 +48,7 @@ public class Controller_adduser {
             if (employee_type.equals("Faculty")) {
                 //faculty
                 if (employee_department == null) {
-                    System.out.println("No department selected.");
+                    //System.out.println("No department selected.");
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Cannot add employee!");
                     alert.setHeaderText(null);
@@ -63,12 +63,12 @@ public class Controller_adduser {
                     newFaculty.hire();
                     class_variables.employeeList.add(newFaculty);
                     ctrl.listview_employee.setItems(class_variables.employeeList);
-                    System.out.println("LIST: " + class_variables.employeeList);
+                    //System.out.println("LIST: " + class_variables.employeeList);
                 }
             } else if (employee_type.equals("Staff")) {
                 //staff
                 if (employee_accesslevel == null) {
-                    System.out.println("No access level selected.");
+                    //System.out.println("No access level selected.");
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Cannot add employee!");
                     alert.setHeaderText(null);
@@ -83,7 +83,7 @@ public class Controller_adduser {
                     newStaff.hire();
                     class_variables.employeeList.add(newStaff);
                     ctrl.listview_employee.setItems(class_variables.employeeList);
-                    System.out.println("LIST: " + class_variables.employeeList);
+                    //System.out.println("LIST: " + class_variables.employeeList);
                 }
             } else {
                 ///oops?
@@ -95,7 +95,7 @@ public class Controller_adduser {
     }
     @FXML public void btn_adduser_cancel_action(){
         Stage stage = (Stage) btn_adduser_cancel.getScene().getWindow();
-        System.out.println("Cancel add user button click.");
+        //System.out.println("Cancel add user button click.");
         stage.hide();
     }
 
@@ -106,7 +106,7 @@ public class Controller_adduser {
         for(int counter=0;counter<length;counter++){
             filler = filler + "0";
         }
-        System.out.println(filler + class_variables.employee_id_counter);
+        //System.out.println(filler + class_variables.employee_id_counter);
 
         field_adduser_id.setText(filler + class_variables.employee_id_counter);
 

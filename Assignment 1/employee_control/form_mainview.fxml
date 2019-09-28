@@ -127,7 +127,7 @@
                              <items>
                                  <FXCollections fx:factory="observableArrayList">
                                      <String fx:value="Staff" />
-                                     <String fx:value="Facutly" />
+                                     <String fx:value="Faculty" />
                                  </FXCollections>
                              </items>
                         <VBox.margin>
@@ -209,7 +209,7 @@
                <VBox prefHeight="30.0" prefWidth="200.0" />
                <VBox prefHeight="30.0" prefWidth="150.0">
                   <children>
-                     <JFXButton fx:id="button_save" disable="true" mnemonicParsing="false" onAction="#btn_save_action" prefHeight="30.0" prefWidth="150.0" text="Save" visible="false" />
+                     <JFXButton fx:id="button_save" disable="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Save" visible="false" />
                   </children>
                </VBox>
                <VBox prefHeight="30.0" prefWidth="150.0">
