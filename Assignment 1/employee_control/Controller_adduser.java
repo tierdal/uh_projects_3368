@@ -64,6 +64,8 @@ public class Controller_adduser {
                     class_variables.employeeList.add(newFaculty);
                     ctrl.listview_employee.setItems(class_variables.employeeList);
                     //System.out.println("LIST: " + class_variables.employeeList);
+                    class_variables.employee_id_counter = class_variables.employee_id_counter + 1;
+                    stage.hide();
                 }
             } else if (employee_type.equals("Staff")) {
                 //staff
@@ -84,14 +86,14 @@ public class Controller_adduser {
                     class_variables.employeeList.add(newStaff);
                     ctrl.listview_employee.setItems(class_variables.employeeList);
                     //System.out.println("LIST: " + class_variables.employeeList);
+                    class_variables.employee_id_counter = class_variables.employee_id_counter + 1;
+                    stage.hide();
                 }
             } else {
                 ///oops?
             }
 
         }
-        class_variables.employee_id_counter = class_variables.employee_id_counter + 1;
-        stage.hide();
     }
     @FXML public void btn_adduser_cancel_action(){
         Stage stage = (Stage) btn_adduser_cancel.getScene().getWindow();
