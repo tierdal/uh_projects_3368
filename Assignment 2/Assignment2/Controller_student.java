@@ -8,8 +8,10 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.*;
 
@@ -25,6 +27,12 @@ public class Controller_student {
 
 
     @FXML private void initialize() {
+
+        col_1.setCellValueFactory(new PropertyValueFactory<Students,String>("id"));
+        col_2.setCellValueFactory(new PropertyValueFactory<Students,String>("name"));
+        col_3.setCellValueFactory(new PropertyValueFactory<Students,String>("age"));
+        col_4.setCellValueFactory(new PropertyValueFactory<Students,String>("major"));
+        col_5.setCellValueFactory(new PropertyValueFactory<Students,String>("gpa"));
 
         populateDataTable();
         populateMajorList();
@@ -134,13 +142,39 @@ public class Controller_student {
     }
 
     private boolean validateAge(){
-
-        return true;
+        if (combo_age_from.getValue() == null) {combo_age_from.setValue("18");}
+        if (combo_age_to.getValue() == null) {combo_age_to.setValue("99");}
+        int age_from = Integer.parseInt(String.valueOf(combo_age_from.getValue()));
+        int age_to = Integer.parseInt(String.valueOf(combo_age_to.getValue()));
+        if (age_to > age_from) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Wrong Age Filter!");
+            alert.setHeaderText(null);
+            alert.setContentText("Make sure Age FROM is less than Age TO");
+            alert.showAndWait();
+            return false;
+        }
     }
 
     private boolean validateGPA(){
-
-        return true;
+        String string_gpa_from = text_gpa_from.getText();
+        String string_gpa_to = text_gpa_to.getText();
+        if (string_gpa_from.equals("")) {text_gpa_from.setText("0");}
+        if (string_gpa_to.equals("")) {text_gpa_to.setText("4");}
+        double gpa_from = Double.parseDouble(String.valueOf(text_gpa_from.getText()));
+        double gpa_to = Double.parseDouble(String.valueOf(text_gpa_to.getText()));
+        if (gpa_to > gpa_from) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Wrong Age Filter!");
+            alert.setHeaderText(null);
+            alert.setContentText("Make sure GPA FROM is less than GPA TO");
+            alert.showAndWait();
+            return false;
+        }
     }
 
     private void clearFilters(){
