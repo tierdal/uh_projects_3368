@@ -1,4 +1,4 @@
-package employee_control;
+package Assignment2;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

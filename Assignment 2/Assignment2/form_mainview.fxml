@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment2.Controller_mainview">
+    <children>
+      <VBox prefHeight="400.0" prefWidth="295.0">
+         <children>
+            <HBox prefHeight="25.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="Employee List" />
+               </children>
+            </HBox>
+            <HBox prefHeight="345.0">
+               <children>
+                    <JFXListView fx:id="listview_employee" onMouseClicked="#list_select_populate_form" prefHeight="345.0" prefWidth="300.0" style="-fx-background-insets: 0; -fx-padding: 0;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="300.0">
+               <children>
+                  <VBox prefHeight="30.0" prefWidth="150.0">
+                     <children>
+                        <JFXButton fx:id="button_add" mnemonicParsing="false" onAction="#btn_add_action" prefHeight="30.0" prefWidth="150.0" text="Add" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="30.0" prefWidth="150.0">
+                     <children>
+                        <JFXButton fx:id="button_delete" mnemonicParsing="false" onAction="#btn_delete_action" prefHeight="30.0" prefWidth="150.0" text="Delete" />
+                     </children>
+                  </VBox>
+               </children></HBox>
+         </children>
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </VBox>
+        <VBox prefHeight="400.0" prefWidth="500.0" spacing="10">
+         <HBox prefHeight="25.0">
+            <children>
+               <Label alignment="CENTER" prefHeight="25.0" prefWidth="500.0" text="Employee Control" />
+            </children></HBox>
+         <HBox>
+            <children>
+               <VBox prefHeight="25.0" prefWidth="150.0">
+                  <children>
+                     <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="ID: ">
+                        <VBox.margin>
+                           <Insets left="50.0" />
+                        </VBox.margin>
+                     </Label>
+                  </children>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </VBox>
+               <VBox prefHeight="25.0" prefWidth="350.0">
+                  <children>
+                     <JFXTextField fx:id="field_id" editable="false">
+                        <VBox.margin>
+                           <Insets right="100.0" />
+                        </VBox.margin>
+                     </JFXTextField>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+            <HBox>
+            <VBox prefHeight="25.0" prefWidth="150.0">
+               <children>
+                      <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="Name: ">
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin></Label>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="25.0" prefWidth="350.0">
+               <children>
+                  <JFXTextField fx:id="field_name">
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+            </VBox>
+            </HBox>
+            <HBox>
+            <VBox prefHeight="25.0" prefWidth="150.0" />
+            <VBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="checkbox_active" prefHeight="25.0" text="Active?" />
+               </children>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </VBox>
+            </HBox>
+         <HBox>
+            <children>
+               <VBox prefHeight="25.0" prefWidth="150.0">
+                  <children>
+                     <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="Type: ">
+                        <VBox.margin>
+                           <Insets left="50.0" />
+                        </VBox.margin>
+                     </Label>
+                  </children>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </VBox>
+               <VBox prefHeight="25.0" prefWidth="350.0">
+                  <children>
+                         <JFXComboBox fx:id="combo_type" prefWidth="350.0">
+                             <items>
+                                 <FXCollections fx:factory="observableArrayList">
+                                     <String fx:value="Staff" />
+                                     <String fx:value="Faculty" />
+                                 </FXCollections>
+                             </items>
+                        <VBox.margin>
+                           <Insets right="100.0" />
+                        </VBox.margin>
+                         </JFXComboBox>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+         <HBox>
+            <children>
+               <VBox prefHeight="25.0" prefWidth="150.0">
+                  <children>
+                     <Label alignment="CENTER_RIGHT" disable="true" prefHeight="25.0" prefWidth="150.0" text="Department: " visible="false">
+                        <VBox.margin>
+                           <Insets left="50.0" />
+                        </VBox.margin>
+                     </Label>
+                  </children>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </VBox>
+               <VBox prefHeight="25.0" prefWidth="350.0">
+                  <children>
+                     <JFXComboBox fx:id="combo_department" disable="true" prefWidth="350.0" visible="false">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Computer Sciences" />
+                              <String fx:value="History" />
+                              <String fx:value="Mathematics" />
+                           </FXCollections>
+                        </items>
+                        <VBox.margin>
+                           <Insets right="100.0" />
+                        </VBox.margin>
+                     </JFXComboBox>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+         <HBox>
+            <children>
+               <VBox prefHeight="25.0" prefWidth="150.0">
+                  <children>
+                     <Label alignment="CENTER_RIGHT" disable="true" prefHeight="25.0" prefWidth="150.0" text="Access Level" visible="false">
+                        <VBox.margin>
+                           <Insets left="50.0" />
+                        </VBox.margin>
+                     </Label>
+                  </children>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </VBox>
+               <VBox prefHeight="25.0" prefWidth="350.0">
+                  <children>
+                     <JFXComboBox fx:id="combo_access" disable="true" prefWidth="350.0" visible="false">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="1" />
+                              <String fx:value="2" />
+                              <String fx:value="3" />
+                              <String fx:value="4" />
+                              <String fx:value="5" />
+                           </FXCollections>
+                        </items>
+                        <VBox.margin>
+                           <Insets right="100.0" />
+                        </VBox.margin>
+                     </JFXComboBox>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+         <HBox prefHeight="30.0" prefWidth="295.0">
+            <children>
+               <VBox prefHeight="30.0" prefWidth="200.0" />
+               <VBox prefHeight="30.0" prefWidth="150.0">
+                  <children>
+                     <JFXButton fx:id="button_save" disable="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Save" visible="false" />
+                  </children>
+               </VBox>
+               <VBox prefHeight="30.0" prefWidth="150.0">
+                  <children>
+                     <JFXButton fx:id="button_exit" mnemonicParsing="false" onAction="#btn_exit_action" prefHeight="30.0" prefWidth="150.0" text="Exit" />
+                  </children>
+               </VBox>
+            </children>
+            <VBox.margin>
+               <Insets right="5.0" top="125.0" />
+            </VBox.margin>
+         </HBox>
+        </VBox>
+    </children>
+</HBox>

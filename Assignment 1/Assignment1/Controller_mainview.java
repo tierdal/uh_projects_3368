@@ -1,4 +1,4 @@
-package employee_control;
+package Assignment1;
 
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
@@ -124,5 +124,4 @@ public class Controller_mainview implements Initializable {
     }*/
 
 }
-
 

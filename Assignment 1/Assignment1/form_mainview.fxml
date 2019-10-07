@@ -12,8 +12,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employee_control.Controller_mainview">
-    <children>
+<HBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment1.Controller_mainview">
+   <children>
       <VBox prefHeight="400.0" prefWidth="295.0">
          <children>
             <HBox prefHeight="25.0" prefWidth="300.0">
@@ -23,7 +23,7 @@
             </HBox>
             <HBox prefHeight="345.0">
                <children>
-                    <JFXListView fx:id="listview_employee" onMouseClicked="#list_select_populate_form" prefHeight="345.0" prefWidth="300.0" style="-fx-background-insets: 0; -fx-padding: 0;" />
+                  <JFXListView fx:id="listview_employee" onMouseClicked="#list_select_populate_form" prefHeight="345.0" prefWidth="300.0" style="-fx-background-insets: 0; -fx-padding: 0;" />
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="300.0">
@@ -44,7 +44,7 @@
             <Insets left="5.0" />
          </HBox.margin>
       </VBox>
-        <VBox prefHeight="400.0" prefWidth="500.0" spacing="10">
+      <VBox prefHeight="400.0" prefWidth="500.0" spacing="10">
          <HBox prefHeight="25.0">
             <children>
                <Label alignment="CENTER" prefHeight="25.0" prefWidth="500.0" text="Employee Control" />
@@ -74,10 +74,10 @@
                </VBox>
             </children>
          </HBox>
-            <HBox>
+         <HBox>
             <VBox prefHeight="25.0" prefWidth="150.0">
                <children>
-                      <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="Name: ">
+                  <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="150.0" text="Name: ">
                      <VBox.margin>
                         <Insets left="50.0" />
                      </VBox.margin></Label>
@@ -95,18 +95,18 @@
                   </JFXTextField>
                </children>
             </VBox>
-            </HBox>
-            <HBox>
+         </HBox>
+         <HBox>
             <VBox prefHeight="25.0" prefWidth="150.0" />
             <VBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="250.0">
                <children>
-                      <JFXCheckBox fx:id="checkbox_active" prefHeight="25.0" text="Active?" />
+                  <JFXCheckBox fx:id="checkbox_active" prefHeight="25.0" text="Active?" />
                </children>
                <HBox.margin>
                   <Insets right="100.0" />
                </HBox.margin>
             </VBox>
-            </HBox>
+         </HBox>
          <HBox>
             <children>
                <VBox prefHeight="25.0" prefWidth="150.0">
@@ -123,17 +123,17 @@
                </VBox>
                <VBox prefHeight="25.0" prefWidth="350.0">
                   <children>
-                         <JFXComboBox fx:id="combo_type" prefWidth="350.0">
-                             <items>
-                                 <FXCollections fx:factory="observableArrayList">
-                                     <String fx:value="Staff" />
-                                     <String fx:value="Faculty" />
-                                 </FXCollections>
-                             </items>
+                     <JFXComboBox fx:id="combo_type" prefWidth="350.0">
+                        <items>
+                           <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Staff" />
+                              <String fx:value="Faculty" />
+                           </FXCollections>
+                        </items>
                         <VBox.margin>
                            <Insets right="100.0" />
                         </VBox.margin>
-                         </JFXComboBox>
+                     </JFXComboBox>
                   </children>
                </VBox>
             </children>
@@ -222,6 +222,6 @@
                <Insets right="5.0" top="125.0" />
             </VBox.margin>
          </HBox>
-        </VBox>
-    </children>
+      </VBox>
+   </children>
 </HBox>

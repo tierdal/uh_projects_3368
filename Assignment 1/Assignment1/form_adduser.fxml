@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employee_control.Controller_adduser">
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment1.Controller_adduser">
     <children>
         <VBox prefHeight="200.0" prefWidth="300.0">
             <children>
@@ -24,7 +24,7 @@
                         </VBox>
                         <VBox fillWidth="false" prefHeight="28.0" prefWidth="200.0">
                             <children>
-                        <JFXTextField fx:id="field_adduser_id" editable="false" prefWidth="200.0" />
+                                <JFXTextField fx:id="field_adduser_id" editable="false" prefWidth="200.0" />
                             </children>
                         </VBox>
                     </children>
@@ -38,7 +38,7 @@
                         </VBox>
                         <VBox fillWidth="false" prefHeight="30.0" prefWidth="200.0">
                             <children>
-                        <JFXTextField fx:id="field_adduser_name" prefWidth="200.0" />
+                                <JFXTextField fx:id="field_adduser_name" prefWidth="200.0" />
                             </children>
                         </VBox>
                     </children>
@@ -53,12 +53,12 @@
                         <VBox fillWidth="false" prefHeight="29.0" prefWidth="202.0">
                             <children>
                                 <JFXComboBox fx:id="combo_adduser_type" onAction="#combo_type_update" prefWidth="200.0">
-                                        <items>
-                                            <FXCollections fx:factory="observableArrayList">
-                                                <String fx:value="Staff" />
-                                                <String fx:value="Faculty" />
-                                            </FXCollections>
-                                        </items>
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Staff" />
+                                            <String fx:value="Faculty" />
+                                        </FXCollections>
+                                    </items>
                                 </JFXComboBox>
                             </children>
                         </VBox>
@@ -86,42 +86,42 @@
                         </VBox>
                     </children>
                 </HBox>
-            <HBox prefHeight="32.0" prefWidth="300.0">
-               <children>
-                  <VBox prefHeight="29.0" prefWidth="100.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Access Level: " />
-                     </children>
-                  </VBox>
-                  <VBox fillWidth="false">
-                     <children>
-                        <JFXComboBox fx:id="combo_adduser_accesslevel" disable="true" prefWidth="200.0">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="1" />
-                                    <String fx:value="2" />
-                                    <String fx:value="3" />
-                                    <String fx:value="4" />
-                                    <String fx:value="5" />
-                                </FXCollections>
-                            </items>
-                        </JFXComboBox>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
+                <HBox prefHeight="32.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="29.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="Access Level: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false">
+                            <children>
+                                <JFXComboBox fx:id="combo_adduser_accesslevel" disable="true" prefWidth="200.0">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="1" />
+                                            <String fx:value="2" />
+                                            <String fx:value="3" />
+                                            <String fx:value="4" />
+                                            <String fx:value="5" />
+                                        </FXCollections>
+                                    </items>
+                                </JFXComboBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
                 <HBox prefHeight="32.0" prefWidth="300.0" />
                 <HBox layoutX="10.0" layoutY="138.0" prefHeight="32.0" prefWidth="300.0">
                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" />
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                        <JFXButton fx:id="btn_adduser_submit" mnemonicParsing="false" onAction="#btn_adduser_submit_action" prefWidth="100.0" text="Submit" />
+                                <JFXButton fx:id="btn_adduser_submit" mnemonicParsing="false" onAction="#btn_adduser_submit_action" prefWidth="100.0" text="Submit" />
                             </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                        <JFXButton fx:id="btn_adduser_cancel" mnemonicParsing="false" onAction="#btn_adduser_cancel_action" prefWidth="100.0" text="Cancel" />
+                                <JFXButton fx:id="btn_adduser_cancel" mnemonicParsing="false" onAction="#btn_adduser_cancel_action" prefWidth="100.0" text="Cancel" />
                             </children>
                         </VBox>
                     </children>

@@ -1,4 +1,4 @@
-package employee_control;
+package Assignment2;
 
 public class class_UHInterfaceEmployee implements interface_Employee, interface_Human {
     public String name;
