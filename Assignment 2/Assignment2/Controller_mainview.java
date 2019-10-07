@@ -20,6 +20,7 @@ public class Controller_mainview implements Initializable {
     @FXML JFXButton button_save;
     @FXML JFXButton button_add;
     @FXML JFXButton button_delete;
+    @FXML JFXButton button_students;
     @FXML JFXTextField field_id;
     @FXML JFXTextField field_name;
     @FXML JFXCheckBox checkbox_active;
@@ -109,6 +110,14 @@ public class Controller_mainview implements Initializable {
             list_select_populate_form();
             //System.out.println(class_variables.employeeList);
         }
+    }
+
+    @FXML public void btn_student_action() throws IOException {
+        Stage adduserStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("form_student.fxml"));
+        adduserStage.setTitle("Student Database");
+        adduserStage.setScene(new Scene(root, 800, 500));
+        adduserStage.show();
     }
 
     @FXML public void btn_exit_action(){

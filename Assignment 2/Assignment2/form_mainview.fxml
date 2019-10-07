@@ -206,7 +206,10 @@
          </HBox>
          <HBox prefHeight="30.0" prefWidth="295.0">
             <children>
-               <VBox prefHeight="30.0" prefWidth="200.0" />
+               <VBox prefHeight="30.0" prefWidth="200.0">
+                  <children>
+                     <JFXButton fx:id="button_students" mnemonicParsing="false" onAction="#btn_student_action" prefHeight="50.0" prefWidth="200.0" text="Student Database" />
+                  </children></VBox>
                <VBox prefHeight="30.0" prefWidth="150.0">
                   <children>
                      <JFXButton fx:id="button_save" disable="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Save" visible="false" />
