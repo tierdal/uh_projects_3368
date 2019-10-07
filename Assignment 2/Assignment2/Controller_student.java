@@ -1,7 +1,6 @@
 package Assignment2;
 
-import com.jfoenix.controls.RecursiveTreeItem;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -9,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TreeItem;
 
 import java.sql.*;
 
@@ -17,6 +15,7 @@ public class Controller_student {
 
     @FXML public TableColumn col_1,col_2,col_3,col_4,col_5;
     @FXML TableView student_tableview;
+    @FXML public JFXComboBox combo_majors;
 
     private ObservableList<Students> student_data;
 
@@ -24,6 +23,7 @@ public class Controller_student {
     @FXML private void initialize() {
 
         populateDataTable();
+        populateMajorList();
 
     }
 
@@ -60,6 +60,25 @@ public class Controller_student {
             conn.close();
         } catch (SQLException tableQueryException) {
             System.err.println(tableQueryException.toString());
+        }
+    }
+
+    private void populateMajorList() {
+        Connection conn = this.connect_db();
+        ObservableList<String> combo_options = FXCollections.observableArrayList();
+        combo_majors.getItems().clear();
+        try {
+            String sql = "SELECT Major FROM majors Order By Major";
+            ResultSet result_set = conn.createStatement().executeQuery(sql);
+
+            while (result_set.next()) {
+                combo_options.add(result_set.getString("Major"));
+            }
+            combo_majors.setItems(combo_options);
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
         }
     }
 
