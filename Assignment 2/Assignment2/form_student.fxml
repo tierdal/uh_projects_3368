@@ -22,7 +22,6 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <JFXButton fx:id="button_validate" mnemonicParsing="false" onAction="#updateDatatable" prefHeight="39.0" prefWidth="325.0" text="Button" />
          </children></HBox>
       <VBox layoutY="100.0" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -58,10 +57,10 @@
          </children></VBox>
       <VBox layoutX="600.0" layoutY="100.0" prefHeight="435.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="385.0" prefWidth="200.0">
+            <VBox prefHeight="315.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="FILTERS" textAlignment="CENTER" underline="true" />
-                  <VBox prefHeight="100.0" prefWidth="200.0">
+                  <VBox prefHeight="75.0" prefWidth="200.0">
                      <children>
                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Age" textAlignment="CENTER" />
                         <HBox prefHeight="75.0" prefWidth="200.0">
@@ -71,7 +70,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="From" textAlignment="CENTER" />
-                                          <JFXComboBox fx:id="combo_age_from" prefWidth="150.0">
+                                          <JFXComboBox fx:id="combo_age_from" onAction="#updateDatatable" prefWidth="150.0">
                                              <VBox.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </VBox.margin>
@@ -85,7 +84,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="To" textAlignment="CENTER" />
-                                          <JFXComboBox fx:id="combo_age_to" prefWidth="150.0">
+                                          <JFXComboBox fx:id="combo_age_to" onAction="#updateDatatable" prefWidth="150.0">
                                              <VBox.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </VBox.margin>
@@ -98,16 +97,16 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="100.0" prefWidth="200.0">
+                  <VBox prefHeight="75.0" prefWidth="200.0">
                      <children>
                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Major" textAlignment="CENTER" />
-                        <JFXComboBox fx:id="combo_majors" prefWidth="200.0">
+                        <JFXComboBox fx:id="combo_majors" onAction="#updateDatatable" prefWidth="200.0">
                            <VBox.margin>
                               <Insets left="5.0" right="5.0" />
                            </VBox.margin></JFXComboBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="100.0" prefWidth="200.0">
+                  <VBox prefHeight="75.0" prefWidth="200.0">
                      <children>
                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="GPA" textAlignment="CENTER" />
                         <HBox prefHeight="75.0" prefWidth="200.0">
@@ -117,7 +116,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="From" textAlignment="CENTER" />
-                                          <JFXTextField fx:id="text_gpa_from">
+                                          <JFXTextField fx:id="text_gpa_from" onKeyReleased="#updateDatatable">
                                              <VBox.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </VBox.margin>
@@ -131,7 +130,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="To" textAlignment="CENTER" />
-                                          <JFXTextField fx:id="text_gpa_to">
+                                          <JFXTextField fx:id="text_gpa_to" onKeyReleased="#updateDatatable">
                                              <VBox.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </VBox.margin>
@@ -151,9 +150,10 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox prefHeight="50.0" prefWidth="200.0">
+            <VBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton fx:id="button_exit" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Exit" />
+                  <JFXButton fx:id="button_clear" mnemonicParsing="false" onAction="#clearFilters" prefHeight="35.0" prefWidth="200.0" text="Clear Filters" />
+                  <JFXButton fx:id="button_exit" mnemonicParsing="false" onAction="#button_exit_click" prefHeight="50.0" prefWidth="200.0" text="Exit" />
                </children>
             </VBox>
          </children></VBox>

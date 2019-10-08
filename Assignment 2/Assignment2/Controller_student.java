@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.sql.*;
 
@@ -83,6 +84,7 @@ public class Controller_student {
             String sql = "SELECT Major FROM majors Order By Major";
             ResultSet result_set = conn.createStatement().executeQuery(sql);
 
+            combo_majors_list.add("");
             while (result_set.next()) {
                 combo_majors_list.add(result_set.getString("Major"));
             }
@@ -116,10 +118,10 @@ public class Controller_student {
             double gpa_to = Double.parseDouble(String.valueOf(text_gpa_to.getText()));
             String major;
 
-            if (combo_majors.getValue() == null){
+            if (combo_majors.getValue() == null | combo_majors.getValue() == ""){
                 major = "";
             } else {
-                major = " AND major LIKE " + String.valueOf(combo_majors.getValue());
+                major = " AND major LIKE '" + String.valueOf(combo_majors.getValue()) + "'";
             }
 
             Connection conn = this.connect_db();
@@ -146,7 +148,7 @@ public class Controller_student {
         if (combo_age_to.getValue() == null) {combo_age_to.setValue("99");}
         int age_from = Integer.parseInt(String.valueOf(combo_age_from.getValue()));
         int age_to = Integer.parseInt(String.valueOf(combo_age_to.getValue()));
-        if (age_to > age_from) {
+        if (age_to >= age_from) {
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -165,7 +167,7 @@ public class Controller_student {
         if (string_gpa_to.equals("")) {text_gpa_to.setText("4");}
         double gpa_from = Double.parseDouble(String.valueOf(text_gpa_from.getText()));
         double gpa_to = Double.parseDouble(String.valueOf(text_gpa_to.getText()));
-        if (gpa_to > gpa_from) {
+        if (gpa_to <=4 && gpa_to >= gpa_from && gpa_from >= 0) {
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -177,8 +179,19 @@ public class Controller_student {
         }
     }
 
-    private void clearFilters(){
+    @FXML private void clearFilters(){
+        combo_age_from.valueProperty().set(null);
+        combo_age_to.valueProperty().set(null);
+        combo_majors.valueProperty().set(null);
+        text_gpa_from.setText("");
+        text_gpa_to.setText("");
+        populateDataTable();
+    }
 
+    @FXML private void button_exit_click (){
+        Stage stage = (Stage) button_exit.getScene().getWindow();
+        //System.out.println("Cancel add user button click.");
+        stage.hide();
     }
 
     public class Students{
