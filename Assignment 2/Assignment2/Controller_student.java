@@ -163,19 +163,21 @@ public class Controller_student {
     private boolean validateGPA(){
         String string_gpa_from = text_gpa_from.getText();
         String string_gpa_to = text_gpa_to.getText();
-        if (string_gpa_from.equals("")) {text_gpa_from.setText("0");}
-        if (string_gpa_to.equals("")) {text_gpa_to.setText("4");}
-        double gpa_from = Double.parseDouble(String.valueOf(text_gpa_from.getText()));
-        double gpa_to = Double.parseDouble(String.valueOf(text_gpa_to.getText()));
-        if (gpa_to <=4 && gpa_to >= gpa_from && gpa_from >= 0) {
-            return true;
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Wrong Age Filter!");
-            alert.setHeaderText(null);
-            alert.setContentText("Make sure GPA FROM is less than GPA TO");
-            alert.showAndWait();
+        if (string_gpa_from.equals("") | string_gpa_to.equals("")) {
             return false;
+        } else {
+            double gpa_from = Double.parseDouble(String.valueOf(text_gpa_from.getText()));
+            double gpa_to = Double.parseDouble(String.valueOf(text_gpa_to.getText()));
+            if (gpa_to <= 4 && gpa_to >= gpa_from && gpa_from >= 0) {
+                return true;
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Wrong Age Filter!");
+                alert.setHeaderText(null);
+                alert.setContentText("Make sure GPA FROM is less than GPA TO");
+                alert.showAndWait();
+                return false;
+            }
         }
     }
 
