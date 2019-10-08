@@ -25,7 +25,7 @@
          </children></HBox>
       <VBox layoutY="100.0" prefHeight="400.0" prefWidth="600.0">
          <children>
-             <TableView fx:id="student_tableview" minHeight="-Infinity" prefHeight="435.0" prefWidth="969.0" style="-fx-background-insets: 0; -fx-padding: 0;">
+             <TableView fx:id="student_tableview" minHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-insets: 0; -fx-padding: 0;">
                  <columns>
                      <TableColumn fx:id="col_1" prefWidth="50.0" text="Id">
                          <cellValueFactory>
@@ -55,9 +55,9 @@
                  </columns>
              </TableView>
          </children></VBox>
-      <VBox layoutX="600.0" layoutY="100.0" prefHeight="435.0" prefWidth="200.0">
+      <VBox layoutX="600.0" layoutY="100.0" prefHeight="400.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="315.0" prefWidth="200.0">
+            <VBox prefHeight="330.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="FILTERS" textAlignment="CENTER" underline="true" />
                   <VBox prefHeight="75.0" prefWidth="200.0">
@@ -150,10 +150,10 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox prefHeight="100.0" prefWidth="200.0">
+            <VBox prefHeight="70.0" prefWidth="200.0">
                <children>
                   <JFXButton fx:id="button_clear" mnemonicParsing="false" onAction="#clearFilters" prefHeight="35.0" prefWidth="200.0" text="Clear Filters" />
-                  <JFXButton fx:id="button_exit" mnemonicParsing="false" onAction="#button_exit_click" prefHeight="50.0" prefWidth="200.0" text="Exit" />
+                  <JFXButton fx:id="button_exit" mnemonicParsing="false" onAction="#button_exit_click" prefHeight="35.0" prefWidth="200.0" text="Exit" />
                </children>
             </VBox>
          </children></VBox>

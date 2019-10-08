@@ -3,8 +3,7 @@ package Assignment2;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -65,7 +64,7 @@ public class Controller_student {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                student_data.add(new Students(result_set.getString(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
+                student_data.add(new Students(result_set.getInt(1),result_set.getString(2),result_set.getInt(3),result_set.getString(4),result_set.getDouble(5)));
             }
             student_tableview.setItems(student_data);
 
@@ -109,6 +108,14 @@ public class Controller_student {
         boolean validated_age = validateAge();
         boolean validate_gpa = validateGPA();
 
+        String string_gpa_from = text_gpa_from.getText();
+        String string_gpa_to = text_gpa_to.getText();
+
+        if (string_gpa_from.equals("") && string_gpa_to.equals("")) {
+            text_gpa_from.setText("0");
+            text_gpa_to.setText("4");
+        }
+
         if (validate_gpa && validated_age) {
             student_data = null;
             student_data = FXCollections.observableArrayList();
@@ -131,7 +138,7 @@ public class Controller_student {
                 PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
                 ResultSet result_set = preparedStatement.executeQuery();
                 while (result_set.next()) {
-                    student_data.add(new Students(result_set.getString(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
+                    student_data.add(new Students(result_set.getInt(1),result_set.getString(2),result_set.getInt(3),result_set.getString(4),result_set.getDouble(5)));
                 }
                 student_tableview.setItems(student_data);
 
@@ -197,13 +204,13 @@ public class Controller_student {
     }
 
     public class Students{
-        private final StringProperty id = new SimpleStringProperty();
+        private final IntegerProperty id = new SimpleIntegerProperty();
         private final StringProperty name = new SimpleStringProperty();
-        private final StringProperty age = new SimpleStringProperty();
+        private final IntegerProperty age = new SimpleIntegerProperty();
         private final StringProperty major = new SimpleStringProperty();
-        private final StringProperty gpa = new SimpleStringProperty();
+        private final DoubleProperty gpa = new SimpleDoubleProperty();
 
-        public Students(String id_i, String name_n, String age_a, String major_m, String gpa_g) {
+        public Students(int id_i, String name_n, int age_a, String major_m, double gpa_g) {
             id.set(id_i);
             name.set(name_n);
             age.set(age_a);
@@ -211,41 +218,23 @@ public class Controller_student {
             gpa.set(gpa_g);
         }
 
-        public String getStudentID() {return id.get();}
+        public int getStudentID() {return id.get();}
         public String getStudentName() {return name.get();}
-        public String getAge() {return age.get();}
+        public int getAge() {return age.get();}
         public String getMajor() {return major.get();}
-        public String getGPA() {return gpa.get();}
+        public double getGPA() {return gpa.get();}
 
-        public StringProperty idProperty() {
-            return id;
-        }
-        public StringProperty nameProperty() {
-            return name;
-        }
-        public StringProperty ageProperty() {
-            return age;
-        }
-        public StringProperty majorProperty() {
-            return major;
-        }
-        public StringProperty gpaProperty() {
-            return gpa;
-        }
+        public IntegerProperty idProperty() {return id;}
+        public StringProperty nameProperty() {return name;}
+        public IntegerProperty ageProperty() {return age;}
+        public StringProperty majorProperty() {return major;}
+        public DoubleProperty gpaProperty() {return gpa;}
 
-        public void setStudentId(String id_i){
-            id.set(id_i);
-        }
+        public void setStudentId(int id_i){id.set(id_i);}
         public void setStudentName(String name_n){ name.set(name_n);}
-        public void setAge(String age_a){
-            age.set(age_a);
-        }
-        public void setMajor(String major_m){
-            major.set(major_m);
-        }
-        public void setGPA(String gpa_g){
-            gpa.set(gpa_g);
-        }
+        public void setAge(int age_a){age.set(age_a);}
+        public void setMajor(String major_m){major.set(major_m);}
+        public void setGPA(double gpa_g){gpa.set(gpa_g);}
 
     }
 }
