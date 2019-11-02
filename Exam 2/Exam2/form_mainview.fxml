@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Exam2.controller_mainview">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="295.0">
+            <children>
+                <HBox prefHeight="25.0" prefWidth="300.0">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="Car Inventory" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="345.0">
+                    <children>
+                        <JFXListView fx:id="listview_car" onMouseClicked="#list_selection_change" prefHeight="345.0" prefWidth="300.0" style="-fx-background-insets: 0; -fx-padding: 0;" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="30.0" prefWidth="300.0">
+               <children>
+                  <Label fx:id="label_display" alignment="CENTER" prefHeight="35.0" prefWidth="295.0" />
+               </children></HBox>
+            </children>
+            <HBox.margin>
+                <Insets left="5.0" />
+            </HBox.margin>
+        </VBox>
+        <VBox prefHeight="400.0" prefWidth="149.0" spacing="10">
+            <HBox prefHeight="25.0" />
+            <HBox>
+                <children>
+                    <VBox prefHeight="25.0" prefWidth="150.0">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                  <children>
+                             <JFXButton fx:id="button_add" mnemonicParsing="false" onAction="#btn_add_action" prefHeight="30.0" prefWidth="150.0" text="Add Car" />
+                  </children>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <VBox prefHeight="25.0" prefWidth="150.0">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+               <children>
+                         <JFXButton fx:id="button_drive" mnemonicParsing="false" onAction="#btn_drive_action" prefHeight="30.0" prefWidth="150.0" text="Drive Car" />
+               </children>
+                </VBox>
+            </HBox>
+            <HBox>
+                <VBox prefHeight="25.0" prefWidth="150.0">
+               <children>
+                          <JFXButton fx:id="button_delete" mnemonicParsing="false" onAction="#btn_delete_action" prefHeight="30.0" prefWidth="150.0" text="Delete Car" />
+               </children></VBox>
+            </HBox>
+        </VBox>
+    </children>
+</HBox>
