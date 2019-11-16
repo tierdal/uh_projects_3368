@@ -17,8 +17,8 @@ public class controller_splash {
         stage.hide();
         Stage secondaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_mainapp.fxml"));
-        secondaryStage.setTitle("plift - Lifting Calculator");
-        secondaryStage.setScene(new Scene(root, 1200, 600));
+        secondaryStage.setTitle("HBC Manage");
+        secondaryStage.setScene(new Scene(root, 600, 400));
         secondaryStage.show();
     }
 

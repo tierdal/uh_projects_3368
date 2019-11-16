@@ -4,3 +4,24 @@
     -fx-background-repeat: none,none;
     -fx-background-position: center;
 }
+#inventorybg{
+    -fx-background-image : url("inventory.jpg");
+    -fx-background-color : #ffffff;
+    -fx-background-size : 200,275;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+#salesorderbg{
+    -fx-background-image : url("salesorder.jpg");
+    -fx-background-color : #ffffff;
+    -fx-background-size : 200,275;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+#customersbg{
+    -fx-background-image : url("customer.jpg");
+    -fx-background-color : #ffffff;
+    -fx-background-size : 200,275;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
