@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -108,12 +109,10 @@ public class controller_customers extends class_global_vars{
             }
     }
     @FXML private void btn_customers_delete_action (){
-        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
-        stage.hide();
+
     }
     @FXML private void btn_customers_refresh_action (){
-        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
-        stage.hide();
+        populateDataTable();
     }
     @FXML private void btn_customers_exit_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
