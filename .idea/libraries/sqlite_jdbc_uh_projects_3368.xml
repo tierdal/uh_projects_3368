@@ -2,7 +2,7 @@
   <library name="sqlite-jdbc-uh_projects_3368">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Assignment 2/sqlite-jdbc.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Final Project/sqlite-jdbc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Final Project/jdbc.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
