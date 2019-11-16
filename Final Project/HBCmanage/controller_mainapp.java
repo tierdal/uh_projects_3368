@@ -10,11 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class controller_mainapp {
-    @FXML JFXButton button_customers;
-    @FXML JFXButton button_inventory;
-    @FXML JFXButton button_salesorder;
-
-
+    @FXML JFXButton button_customers,button_inventory,button_salesorder;
 
     @FXML public void btn_salesorders_action() throws IOException {
         Stage orderStage = new Stage();
