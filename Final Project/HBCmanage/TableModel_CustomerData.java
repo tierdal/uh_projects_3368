@@ -35,6 +35,6 @@ public class TableModel_CustomerData {
     public String getCustomer_PhoneNumber() {return Customer_PhoneNumber.get();}
     public void setCustomer_PhoneNumber(String phone){Customer_PhoneNumber.set(phone);}
 
-    public String getCustomer_EmaiAddress(){return Customer_EmailAddress.get();}
-    public void setCustomer_EmaiAddress(String email){Customer_EmailAddress.set(email);}
+    public String getCustomer_EmailAddress(){return Customer_EmailAddress.get();}
+    public void setCustomer_EmailAddress(String email){Customer_EmailAddress.set(email);}
 }
