@@ -2,7 +2,7 @@ package HBCmanage;
 
 import javafx.beans.property.*;
 
-public class InventoryDataTableModel {
+public class TableModel_InventoryData {
     public IntegerProperty IDProperty() {return Inventory_ID;}
     public StringProperty PartNumber_Property() {return Inventory_PartNumber;}
     public StringProperty Desc_Property(){return Inventory_Description;}
@@ -19,8 +19,8 @@ public class InventoryDataTableModel {
     private final DoubleProperty Inventory_Cost = new SimpleDoubleProperty();
     private final IntegerProperty Inventory_QtyOnHand = new SimpleIntegerProperty();
 
-    public InventoryDataTableModel(int ID, String PartNum, String Desc, double Price, String Type,
-                                   double Cost, int QtyOnHand){
+    public TableModel_InventoryData(int ID, String PartNum, String Desc, double Price, String Type,
+                                    double Cost, int QtyOnHand){
         Inventory_ID.set(ID);
         Inventory_PartNumber.set(PartNum);
         Inventory_Description.set(Desc);

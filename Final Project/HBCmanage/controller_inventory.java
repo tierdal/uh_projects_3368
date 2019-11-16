@@ -11,7 +11,6 @@ import java.sql.*;
 import javafx.fxml.Initializable;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import java.net.URL;
@@ -22,7 +21,7 @@ import javafx.scene.control.TableView;
 
 public class controller_inventory implements Initializable {
     @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7;
-    private ObservableList<InventoryDataTableModel> inventory_data;
+    private ObservableList<TableModel_InventoryData> inventory_data;
     @FXML TableView inventory_tableview;
 
     //Connect to remote MySQL DB
@@ -55,7 +54,7 @@ public class controller_inventory implements Initializable {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                inventory_data.add(new InventoryDataTableModel(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getDouble(4),result_set.getString(5),result_set.getDouble(6),result_set.getInt(7)));
+                inventory_data.add(new TableModel_InventoryData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getDouble(4),result_set.getString(5),result_set.getDouble(6),result_set.getInt(7)));
             }
             inventory_tableview.setItems(inventory_data);
             result_set.close();
@@ -67,13 +66,13 @@ public class controller_inventory implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        col_1.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_ID"));
-        col_2.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_PartNumber"));
-        col_3.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_Description"));
-        col_4.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_Price"));
-        col_5.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_Type"));
-        col_6.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_Cost"));
-        col_7.setCellValueFactory(new PropertyValueFactory<InventoryDataTableModel,String>("Inventory_QtyOnHand"));
+        col_1.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_ID"));
+        col_2.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_PartNumber"));
+        col_3.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_Description"));
+        col_4.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_Price"));
+        col_5.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_Type"));
+        col_6.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_Cost"));
+        col_7.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Inventory_QtyOnHand"));
 
         populateDataTable();
 
