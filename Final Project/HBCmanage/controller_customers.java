@@ -92,8 +92,8 @@ public class controller_customers extends class_global_vars{
     private void fetch_RowID(){
         int selected_index;
         selected_index = customer_list.getSelectionModel().getSelectedIndex();
-        TableModel_InventoryData selected_record = (TableModel_InventoryData)customer_list.getItems().get(selected_index);
-        inventory_selected_id = selected_record.getInventory_ID();
+        TableModel_CustomerData selected_record = (TableModel_CustomerData)customer_list.getItems().get(selected_index);
+        customer_selected_id = selected_record.getCustomer_ID();
     }
 
     @FXML private void btn_customers_edit_action () throws IOException {
@@ -108,11 +108,36 @@ public class controller_customers extends class_global_vars{
             customerStage.show();
             }
     }
+  
     @FXML private void btn_customers_delete_action (){
 
+        if (customer_list.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cannot delete item!");
+            alert.setHeaderText(null);
+            alert.setContentText("No item selected!");
+            alert.showAndWait();
+        } else {
+            fetch_RowID();
+            Connection conn = this.connect_db();
+            try {
+                String sql = "DELETE FROM finalproject_customers WHERE Customer_ID_Id = '" + inventory_selected_id + "';";
+                PreparedStatement sql_statement = conn.prepareStatement(sql);
+                sql_statement.executeUpdate();
+                conn.commit();
+                System.out.println("Item Deleted!");
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Error on Building Data");
+            }
+            populateDataTable();
+        }
     }
+  
     @FXML private void btn_customers_refresh_action (){
         populateDataTable();
+      
     }
     @FXML private void btn_customers_exit_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
