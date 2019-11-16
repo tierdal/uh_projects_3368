@@ -33,6 +33,7 @@ public class TableModel_OrderData {
         Customer_FirstName.set(fname);
         Customer_LastName.set(lname);
         RepairOrder_Total.set(total);
+        TrackingOrder_TrackingNumber.set(trackingnumber);
     }
 
 
