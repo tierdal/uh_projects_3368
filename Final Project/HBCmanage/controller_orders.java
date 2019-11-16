@@ -63,7 +63,7 @@ public class controller_orders extends class_global_vars implements Initializabl
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getString(4),result_set.getDouble(5),result_set.getInt(6),result_set.getString(7),result_set.getString(8),result_set.getInt(9),result_set.getString(10)));
+                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getString(4),result_set.getDouble(5),result_set.getString(6),result_set.getString(7),result_set.getString(8),result_set.getInt(9),result_set.getString(10)));
             }
             order_tableview.setItems(order_data);
             result_set.close();
@@ -180,7 +180,7 @@ public class controller_orders extends class_global_vars implements Initializabl
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getString(4),result_set.getDouble(5),result_set.getInt(6),result_set.getString(7),result_set.getString(8),result_set.getInt(9),result_set.getString(10)));
+                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getString(4),result_set.getDouble(5),result_set.getString(6),result_set.getString(7),result_set.getString(8),result_set.getInt(9),result_set.getString(10)));
             }
             order_tableview.setItems(order_data);
 

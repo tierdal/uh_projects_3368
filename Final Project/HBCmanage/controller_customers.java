@@ -108,7 +108,9 @@ public class controller_customers extends class_global_vars{
             customerStage.show();
             }
     }
+  
     @FXML private void btn_customers_delete_action (){
+
         if (customer_list.getSelectionModel().getSelectedItem() == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cannot delete item!");
@@ -132,8 +134,10 @@ public class controller_customers extends class_global_vars{
             populateDataTable();
         }
     }
+  
     @FXML private void btn_customers_refresh_action (){
-        updateDatatable();
+        populateDataTable();
+      
     }
     @FXML private void btn_customers_exit_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();

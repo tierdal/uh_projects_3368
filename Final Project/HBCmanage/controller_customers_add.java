@@ -48,7 +48,7 @@ public class controller_customers_add {
 
         try {
             ps_conn = conn.createStatement();
-            String sql = "INSERT INTO finalproject_customers(Customer_FirstName, Customer_LastName, Customer_PhoneNumber, Customer_EmailAddress) VALUES('"+new_fname+"','"+new_lname+"',"+new_phone+"','"+new_email+")";
+            String sql = "INSERT INTO finalproject_customers(Customer_FirstName, Customer_LastName, Customer_PhoneNumber, Customer_EmailAddress) VALUES('"+new_fname+"','"+new_lname+"',"+new_phone+",'"+new_email+"')";
             ps_conn.executeUpdate(sql);
             ps_conn.close();
             conn.commit();
