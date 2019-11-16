@@ -19,7 +19,7 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <JFXButton id="salesorderbg" fx:id="button_salesorder" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Sales Orders">
+                                    <JFXButton id="salesorderbg" fx:id="button_salesorder" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_salesorders_action" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Sales Orders">
                                        <font>
                                           <Font name="Centaur" size="24.0" />
                                        </font>
@@ -32,7 +32,7 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <JFXButton id="inventorybg" fx:id="button_inventory" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Inventory">
+                                    <JFXButton id="inventorybg" fx:id="button_inventory" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_inventory_action" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Inventory">
                                        <font>
                                           <Font name="Centaur" size="24.0" />
                                        </font>
@@ -45,7 +45,7 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <JFXButton id="customersbg" fx:id="button_customers" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Customers">
+                                    <JFXButton id="customersbg" fx:id="button_customers" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_customers_action" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Customers">
                                        <font>
                                           <Font name="Centaur" size="24.0" />
                                        </font>
