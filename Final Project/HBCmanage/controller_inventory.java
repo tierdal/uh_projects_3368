@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.mysql.cj.jdbc.MysqlDataSource;
 
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,22 +29,22 @@ import javafx.stage.Stage;
 
 
 
-public class controller_inventory implements Initializable {
+public class controller_inventory extends class_global_vars implements Initializable {
     @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7;
     private ObservableList<TableModel_InventoryData> inventory_data;
     @FXML TableView inventory_tableview;
     @FXML JFXButton btn_inventory_refresh,btn_inventory_delete,btn_inventory_edit,btn_inventory_add,btn_inventory_exit,btn_inventory_clear,btn_inventory_apply;
-    public int item_id,selected_index;
+    public int selected_index;
     @FXML JFXComboBox filter_inventory_type;
     @FXML JFXTextField filter_inventory_pn,filter_inventory_price_from,filter_inventory_price_to,filter_inventory_cost_from,filter_inventory_cost_to;
 
     //Connect to remote MySQL DB
     private Connection connect_db() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("eshumeyko");
-        dataSource.setPassword("Th1sGuyF@wks");
-        dataSource.setServerName("db4free.net");
-        dataSource.setDatabaseName("uh2336");
+        dataSource.setUser(db_user);
+        dataSource.setPassword(db_pass);
+        dataSource.setServerName(db_url);
+        dataSource.setDatabaseName(db_database);
 
         Connection conn = null;
         try {
@@ -101,11 +100,16 @@ public class controller_inventory implements Initializable {
         orderStage.show();
     }
     @FXML public void btn_inventory_edit_action() throws IOException {
-        Stage inventoryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("form_inventory_edit.fxml"));
-        inventoryStage.setTitle("HBC Manage - Inventory");
-        inventoryStage.setScene(new Scene(root, 300, 400));
-        inventoryStage.show();
+        fetch_RowID();
+        if (inventory_tableview.getSelectionModel().getSelectedItem() == null) {
+            System.out.println("oops");
+        } else {
+            Stage inventoryStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("form_inventory_edit.fxml"));
+            inventoryStage.setTitle("HBC Manage - Inventory");
+            inventoryStage.setScene(new Scene(root, 300, 400));
+            inventoryStage.show();
+        }
     }
 
     @FXML public void btn_inventory_delete_action() {
@@ -119,7 +123,7 @@ public class controller_inventory implements Initializable {
             fetch_RowID();
             Connection conn = this.connect_db();
             try {
-                String sql = "DELETE FROM finalproject_inventory WHERE Inventory_Id = '" + item_id + "';";
+                String sql = "DELETE FROM finalproject_inventory WHERE Inventory_Id = '" + inventory_selected_id + "';";
                 PreparedStatement sql_statement = conn.prepareStatement(sql);
                 sql_statement.executeUpdate();
                 conn.commit();
@@ -141,7 +145,7 @@ public class controller_inventory implements Initializable {
     private void fetch_RowID(){
         selected_index = inventory_tableview.getSelectionModel().getSelectedIndex();
         TableModel_InventoryData selected_record = (TableModel_InventoryData)inventory_tableview.getItems().get(selected_index);
-        item_id = selected_record.getInventory_ID();
+        inventory_selected_id = selected_record.getInventory_ID();
     }
 
     private void populateTypeList() {

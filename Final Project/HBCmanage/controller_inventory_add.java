@@ -8,7 +8,6 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
@@ -16,7 +15,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class controller_inventory_add {
+public class controller_inventory_add extends class_global_vars{
     @FXML public JFXButton btn_inventory_save,btn_inventory_cancel;
     @FXML public JFXTextField text_inventory_add_pn,text_inventory_add_price,text_inventory_add_cost,text_inventory_add_qty;
     @FXML public JFXComboBox combo_inventory_add_type;
@@ -35,10 +34,10 @@ public class controller_inventory_add {
 
     private Connection connect_db() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("eshumeyko");
-        dataSource.setPassword("Th1sGuyF@wks");
-        dataSource.setServerName("db4free.net");
-        dataSource.setDatabaseName("uh2336");
+        dataSource.setUser(db_user);
+        dataSource.setPassword(db_pass);
+        dataSource.setServerName(db_url);
+        dataSource.setDatabaseName(db_database);
 
         Connection conn = null;
         try {
