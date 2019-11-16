@@ -20,13 +20,10 @@ public class controller_inventory_edit extends controller_inventory{
 
     @FXML private void initialize() {
         populateTypeList();
-        populatefields();
+
     }
 
-    @FXML private void populatefields() {
-        TableModel_InventoryData SelectedPN = inventory_tableview.getSelectionModel().getSelectedItem().getInventory_PartNumber();
-        text_inventory_add_pn.setText(SelectedPN);
-    }
+
 
     @FXML public void btn_inventory_save_action(){
         Stage stage = (Stage) btn_inventory_save.getScene().getWindow();

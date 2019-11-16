@@ -6,7 +6,12 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import javafx.scene.control.TableView;
@@ -74,10 +79,14 @@ public class controller_customers extends class_global_vars{
             System.err.println(tableQueryException.toString());
         }
     }
-    @FXML private void btn_customers_add_action (){
-        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
-        stage.hide();
+    @FXML public void btn_customers_add_action() throws IOException {
+        Stage inventoryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("form_customers_add.fxml"));
+        inventoryStage.setTitle("HBC Manage - Customers");
+        inventoryStage.setScene(new Scene(root, 300, 400));
+        inventoryStage.show();
     }
+
     @FXML private void btn_customers_edit_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
         stage.hide();

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_customers_add">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="300.0">
+            <children>
+                <HBox layoutX="10.0" layoutY="138.0" prefHeight="40.0" prefWidth="300.0" />
+                <HBox prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="First Name:" />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="30.0" prefWidth="200.0">
+                            <children>
+                                <JFXTextField fx:id="add_fname_text" prefHeight="35.0" prefWidth="195.0" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Last Name:" />
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Phone:">
+                           <font>
+                              <Font name="Candara" size="15.0" />
+                           </font></Label>
+                     </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="28.0" prefWidth="200.0">
+                     <children>
+                                <JFXTextField fx:id="add_lname_text" prefHeight="35.0" prefWidth="195.0" />
+                                <JFXTextField fx:id="add_phone_text" prefHeight="35.0" prefWidth="195.0" />
+                     </children></VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="42.0" prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Email:" />
+                     </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="29.0" prefWidth="202.0">
+                     <children>
+                                <JFXTextField fx:id="add_email_text" prefHeight="35.0" prefWidth="195.0" />
+                     </children></VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="74.0" prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="29.0" prefWidth="100.0" />
+                        <VBox fillWidth="false" />
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="138.0" prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                     <children>
+                                <JFXButton fx:id="btn_customers_save" mnemonicParsing="false" onAction="#submit_user" prefHeight="40.0" prefWidth="200.0" text="SAVE" />
+                     </children></VBox>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                     <children>
+                                <JFXButton fx:id="btn_customers_cancel" mnemonicParsing="false" onAction="#btn_cancel_action" prefHeight="40.0" prefWidth="148.0" text="CANCEL" />
+                     </children></VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
