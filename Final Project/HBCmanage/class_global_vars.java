@@ -7,4 +7,5 @@ public class class_global_vars {
     public static String db_database = "uh2336";
     public static int inventory_selected_id;
     public static int orders_selected_id;
+    public static int customer_selected_id;
 }
