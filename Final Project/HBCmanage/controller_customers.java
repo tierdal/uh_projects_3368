@@ -115,13 +115,6 @@ public class controller_customers extends class_global_vars{
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
         stage.hide();
     }
-    @FXML private void btn_customers_apply_action (){
-        updateDatatable();
-    }
-    @FXML private void btn_customers_clear_action (){
-        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
-        stage.hide();
-    }
     @FXML private void btn_customers_exit_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
         stage.hide();

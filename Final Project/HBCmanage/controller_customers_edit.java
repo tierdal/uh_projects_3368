@@ -27,11 +27,11 @@ public class controller_customers_edit extends class_global_vars {
 
     private Connection connect_db() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("eshumeyko");
-        dataSource.setPassword("Th1sGuyF@wks");
-        dataSource.setServerName("db4free.net");
-        dataSource.setDatabaseName("uh2336");
-
+        dataSource.setUser(db_user);
+        dataSource.setPassword(db_pass);
+        dataSource.setServerName(db_url);
+        dataSource.setDatabaseName(db_database);
+        
         Connection conn = null;
         try {
             conn = dataSource.getConnection();
