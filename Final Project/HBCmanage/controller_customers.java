@@ -1,5 +1,7 @@
 package HBCmanage;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,14 +11,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
+import javafx.stage.Stage;
+
 import java.sql.*;
 
 
-public class controller_customers {
-    @FXML
-    public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7;
+public class controller_customers extends class_global_vars{
+    @FXML public TableColumn col_1,col_2,col_3,col_4,col_5;
     private ObservableList<TableModel_CustomerData> customer_data;
     @FXML TableView customer_list;
+    @FXML JFXTextField filter_fname,filter_lname,filter_email;
+    @FXML JFXButton btn_customers_add, btn_customers_edit,btn_customers_delete,btn_customers_refresh,btn_customers_apply,btn_customers_clear,btn_customers_exit;
 
     @FXML private void initialize() {
 
@@ -33,10 +38,10 @@ public class controller_customers {
     //Connect to remote MySQL DB
     private Connection connect_db() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("eshumeyko");
-        dataSource.setPassword("Th1sGuyF@wks");
-        dataSource.setServerName("db4free.net");
-        dataSource.setDatabaseName("uh2336");
+        dataSource.setUser(db_user);
+        dataSource.setPassword(db_pass);
+        dataSource.setServerName(db_url);
+        dataSource.setDatabaseName(db_database);
 
         Connection conn = null;
         try {
@@ -69,5 +74,68 @@ public class controller_customers {
             System.err.println(tableQueryException.toString());
         }
     }
+    @FXML private void btn_customers_add_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
+    @FXML private void btn_customers_edit_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
+    @FXML private void btn_customers_delete_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
+    @FXML private void btn_customers_refresh_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
+    @FXML private void btn_customers_apply_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
+    @FXML private void btn_customers_clear_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
+    @FXML private void btn_customers_exit_action (){
+        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
+        stage.hide();
+    }
 
+    @FXML public void updateDatatable(){
+        String fname = "", lname = "", email="";
+
+        customer_data = null;
+        customer_data = FXCollections.observableArrayList();
+
+        fname = " Customer_FirstName LIKE '" + filter_fname.getText() + "%'";
+        lname = " AND Customer_LastName LIKE '" + filter_lname.getText() + "%'";
+        //email = " Customer_EmailAddress LIKE '" + filter_email.getText() + "%'";
+
+
+        Connection conn = this.connect_db();
+        String sql_main = "SELECT * FROM finalproject_customers WHERE" + fname + lname + email + " ORDER BY Customer_ID";
+        System.out.println(sql_main);
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
+            ResultSet result_set = preparedStatement.executeQuery();
+            while (result_set.next()) {
+                customer_data.add(new TableModel_CustomerData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
+            }
+            customer_list.setItems(customer_data);
+
+            result_set.close();
+            conn.close();
+        } catch (SQLException tableQueryException) {
+            System.err.println(tableQueryException.toString());
+        }
+    }
+
+    @FXML private void clearFilters(){
+        filter_fname.setText("");
+        filter_lname.setText("");
+        filter_email.setText("");
+        populateDataTable();
+    }
 }
