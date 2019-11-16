@@ -142,8 +142,8 @@ public class controller_orders extends class_global_vars implements Initializabl
 
     private void fetch_RowID(){
         selected_index = order_tableview.getSelectionModel().getSelectedIndex();
-        TableModel_InventoryData selected_record = (TableModel_InventoryData)order_tableview.getItems().get(selected_index);
-        orders_selected_id = selected_record.getInventory_ID();
+        TableModel_OrderData selected_record = (TableModel_OrderData)order_tableview.getItems().get(selected_index);
+        orders_selected_id = selected_record.getOrder_ID();
     }
 
     @FXML private void clearFilters(){

@@ -26,9 +26,9 @@ public class controller_inventory_edit extends class_global_vars {
     private int selected_id;
 
     @FXML private void initialize() {
+        selected_id = inventory_selected_id;
         populateTypeList();
         populateFields();
-        selected_id = inventory_selected_id;
     }
 
     private Connection connect_db() {
