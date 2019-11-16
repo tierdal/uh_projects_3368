@@ -34,7 +34,40 @@ public class TableModel_OrderData {
         Customer_LastName.set(lname);
         RepairOrder_Total.set(total);
         TrackingOrder_TrackingNumber.set(trackingnumber);
+        RepairOrder_Status.set(Status);
+        RepairOrder_DateCreated.set(date);
+        Employee_ID.set(EmployeeID);
+        Employee_Name.set(ename);
     }
 
+    public int getRepairOrder_ID(){return RepairOrder_ID.get();}
+    public void setRepairOrder_ID(int RepairID){RepairOrder_ID.set(RepairID);}
+
+    public int getCustomer_ID(){return Customer_ID.get();}
+    public void setCustomer_ID(int CustID){Customer_ID.set(CustID);}
+
+    public String getCustomer_FirstName(){return Customer_FirstName.get();}
+    public void setCustomer_FirstName(String fname){Customer_FirstName.set(fname);}
+
+    public String getCustomer_LastName(){return Customer_LastName.get();}
+    public void setCustomer_LastName(String lname){Customer_LastName.set(lname);}
+
+    public double getRepairOrder_Total(){return RepairOrder_Total.get();}
+    public void setRepairOrder_Total(double total){ RepairOrder_Total.set(total); }
+
+    public int getTrackingOrder_TrackingNumber(){return TrackingOrder_TrackingNumber.get();}
+    public void setTrackingOrder_TrackingNumber(int trackingnumber){TrackingOrder_TrackingNumber.set(trackingnumber);}
+
+    public String getRepairOrder_Status(){return RepairOrder_Status.get();}
+    public void setRepairOrder_Status(String Status){RepairOrder_Status.set(Status);}
+
+    public String getRepairOrder_DateCreated(){return RepairOrder_DateCreated.get();}
+    public void setRepairOrder_DateCreated(String date){RepairOrder_DateCreated.set(date);}
+
+    public int getEmployee_ID(){return Employee_ID.get();}
+    public void setEmployee_ID(int EmployeeID){Employee_ID.set(EmployeeID);}
+
+    public String getEmployee_Name(){return Employee_Name.get();}
+    public void setEmployee_Name(String ename){Employee_Name.set(ename);}
 
 }
