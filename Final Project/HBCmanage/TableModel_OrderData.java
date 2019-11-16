@@ -15,7 +15,7 @@ public class TableModel_OrderData {
     private final IntegerProperty Employee_ID = new SimpleIntegerProperty();
     private final StringProperty Employee_Name = new SimpleStringProperty();
 
-    public IntegerProperty RepairIDProperty() {return RepairOrder_ID;}
+    public IntegerProperty Repair_IDProperty() {return RepairOrder_ID;}
     public IntegerProperty CustomerID_Property() {return Customer_ID;}
     public StringProperty Fname_Property(){return Customer_FirstName;}
     public StringProperty LName_Property() {return Customer_LastName;}
