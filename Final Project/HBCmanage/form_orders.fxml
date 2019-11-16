@@ -1,14 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="HBCmanage.controller_orders"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_orders">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="1200.0">
+            <children>
+                <VBox prefHeight="50.0" prefWidth="1200.0">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="1200.0" text="Orders">
+                            <font>
+                                <Font name="Centaur" size="48.0" />
+                            </font>
+                        </Label>
+                    </children></VBox>
+                <HBox prefHeight="550.0" prefWidth="1200.0">
+                    <children>
+                        <HBox prefHeight="550.0" prefWidth="1000.0">
+                            <children>
+                                <VBox prefHeight="550.0" prefWidth="1000.0">
+                                    <children>
+                                        <HBox prefHeight="50.0" prefWidth="1000.0">
+                                            <children>
+                                                <JFXButton fx:id="btn_orders_add" mnemonicParsing="false" onAction="#btn_orders_add_action" prefHeight="50.0" prefWidth="250.0" text="New Order">
+                                                    <font>
+                                                        <Font name="Centaur" size="18.0" />
+                                                    </font>
+                                                </JFXButton>
+                                                <JFXButton fx:id="btn_orders_edit" mnemonicParsing="false" onAction="#btn_orders_edit_action" prefHeight="50.0" prefWidth="250.0" text="Edit Order">
+                                                    <font>
+                                                        <Font name="Centaur" size="18.0" />
+                                                    </font>
+                                                </JFXButton>
+                                                <JFXButton fx:id="btn_orders_delete" mnemonicParsing="false" onAction="#btn_orders_delete_action" prefHeight="50.0" prefWidth="250.0" text="Delete Order">
+                                                    <font>
+                                                        <Font name="Centaur" size="18.0" />
+                                                    </font>
+                                                </JFXButton>
+                                                <JFXButton fx:id="btn_orders_refresh" mnemonicParsing="false" onAction="#btn_orders_refresh_action" prefHeight="50.0" prefWidth="250.0" text="Refresh Order List">
+                                                    <font>
+                                                        <Font name="Centaur" size="18.0" />
+                                                    </font>
+                                                </JFXButton>
+                                            </children>
+                                        </HBox>
+                                        <VBox prefHeight="500.0" prefWidth="1000.0">
+                                            <children>
+                                                <TableView fx:id="order_tableview" prefHeight="500.0" prefWidth="1000.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="col_1" editable="false" prefWidth="100" text="Id">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Order_ID" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_2" editable="false" prefWidth="50" text="Customer ID" visible="false">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Customer_ID" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_3" editable="false" prefWidth="200" text="First Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Customer_FirstName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_4" editable="false" prefWidth="200" text="Last Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Customer_LastName" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_5" editable="false" prefWidth="75" text="Total">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Order_Total" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_6" editable="false" prefWidth="125" text="Tracking Number">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Order_TrackingNumber" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_7" editable="false" prefWidth="75" text="Status">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Order_Status" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_8" editable="false" prefWidth="100" text="Date Created">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Order_DateCreated" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_9" editable="false" prefWidth="50" text="Employee ID" visible="false">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Employee_ID" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                        <TableColumn fx:id="col_10" editable="false" prefWidth="125" text="Employee Name">
+                                                            <cellValueFactory>
+                                                                <PropertyValueFactory property="Employee_Name" />
+                                                            </cellValueFactory>
+                                                        </TableColumn>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="550.0" prefWidth="200.0">
+                            <children>
+                                <VBox prefHeight="550.0" prefWidth="200.0">
+                                    <children>
+                                        <VBox prefHeight="455.0" prefWidth="200.0">
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="50.0" prefWidth="200.0" text="FILTERS" textAlignment="CENTER" underline="true">
+                                                    <font>
+                                                        <Font name="Centaur" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <VBox prefHeight="75.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Order ID" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="Centaur" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <JFXTextField fx:id="filter_orders_id" prefHeight="30.0">
+                                                            <VBox.margin>
+                                                                <Insets left="5.0" right="5.0" />
+                                                            </VBox.margin>
+                                                        </JFXTextField>
+                                                    </children>
+                                                </VBox>
+                                    <VBox prefHeight="75.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Tracking Number" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Centaur" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="filter_orders_tracking" prefHeight="30.0">
+                                             <VBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="75.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="First Name" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Centaur" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="filter_orders_fname" prefHeight="30.0">
+                                             <VBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="75.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Last Name" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Centaur" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="filter_orders_lname" prefHeight="30.0">
+                                             <VBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="75.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Date Created" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Centaur" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="filter_orders_date" prefHeight="30.0">
+                                             <VBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </VBox>
+                                            </children>
+                                        </VBox>
+                                        <VBox prefHeight="95.0" prefWidth="200.0">
+                                            <children>
+                                                <JFXButton fx:id="btn_orders_apply" mnemonicParsing="false" onAction="#updateDatatable" prefHeight="35.0" prefWidth="200.0" text="Apply Filters">
+                                                    <font>
+                                                        <Font name="Centaur" size="14.0" />
+                                                    </font>
+                                                </JFXButton>
+                                                <JFXButton fx:id="btn_orders_clear" mnemonicParsing="false" onAction="#clearFilters" prefHeight="35.0" prefWidth="200.0" text="Clear Filters">
+                                                    <font>
+                                                        <Font name="Centaur" size="14.0" />
+                                                    </font></JFXButton>
+                                                <JFXButton fx:id="btn_orders_exit" mnemonicParsing="false" onAction="#btn_orders_exit_action" prefHeight="35.0" prefWidth="200.0" text="Exit">
+                                                    <font>
+                                                        <Font name="Centaur" size="14.0" />
+                                                    </font></JFXButton>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children></HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>
