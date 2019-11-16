@@ -1,25 +1,25 @@
 #splash-background{
-    -fx-background-image : url("splash.jpg");
+    -fx-background-image : url("img_splash.jpg");
     -fx-background-size : 300,800;
     -fx-background-repeat: none,none;
     -fx-background-position: center;
 }
 #inventorybg{
-    -fx-background-image : url("inventory.jpg");
+    -fx-background-image : url("img_inventory.jpg");
     -fx-background-color : #ffffff;
     -fx-background-size : 200,275;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 #salesorderbg{
-    -fx-background-image : url("salesorder.jpg");
+    -fx-background-image : url("img_salesorder.jpg");
     -fx-background-color : #ffffff;
     -fx-background-size : 200,275;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 #customersbg{
-    -fx-background-image : url("customer.jpg");
+    -fx-background-image : url("img_customer.jpg");
     -fx-background-color : #ffffff;
     -fx-background-size : 200,275;
     -fx-background-repeat: no-repeat;
