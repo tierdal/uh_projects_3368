@@ -1,10 +1,16 @@
 package HBCmanage;
 
+import javafx.fxml.Initializable;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class controller_inventory {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+
+public class controller_inventory implements Initializable {
 
     //Connect to remote MySQL DB
     private Connection connect() {
@@ -18,6 +24,13 @@ public class controller_inventory {
             System.out.println(e.getMessage());
         }
         return conn;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        //Set cell values so table can properly populate
+
     }
 
 }

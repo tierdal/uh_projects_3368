@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("form_mainview.fxml"));
-        primaryStage.setTitle("Car Inventory");
+        primaryStage.setTitle("Car Inventory_DataTableModel");
         primaryStage.setScene(new Scene(root, 450, 400));
         primaryStage.show();
 
