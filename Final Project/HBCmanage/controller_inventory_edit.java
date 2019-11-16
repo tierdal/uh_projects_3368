@@ -72,6 +72,8 @@ public class controller_inventory_edit extends class_global_vars {
 
     }
 
+
+
     @FXML public void btn_inventory_save_action(){
         Stage stage = (Stage) btn_inventory_save.getScene().getWindow();
         submit_user();
