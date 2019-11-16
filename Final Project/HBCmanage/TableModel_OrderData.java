@@ -18,7 +18,7 @@ public class TableModel_OrderData {
     public IntegerProperty RepairIDProperty() {return RepairOrder_ID;}
     public IntegerProperty CustomerID_Property() {return Customer_ID;}
     public StringProperty Fname_Property(){return Customer_FirstName;}
-    public StringProperty LNAme_Property() {return Customer_LastName;}
+    public StringProperty LName_Property() {return Customer_LastName;}
     public DoubleProperty RepiarOrderTotal_Property() {return RepairOrder_Total;}
     public IntegerProperty Tracking_Property() {return TrackingOrder_TrackingNumber;}
     public StringProperty Status_Property() {return RepairOrder_Status;}
