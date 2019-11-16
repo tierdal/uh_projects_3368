@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,14 +51,13 @@ public class controller_inventory implements Initializable {
         try {
             conn = dataSource.getConnection();
             conn.setAutoCommit(false);
-            System.out.println("DB Connection established...");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return conn;
     }
 
-    private void populateDataTable() {
+    public void populateDataTable() {
 
         Connection conn = this.connect_db();
         inventory_data = FXCollections.observableArrayList();
@@ -97,14 +97,14 @@ public class controller_inventory implements Initializable {
         Stage orderStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_inventory_add.fxml"));
         orderStage.setTitle("HBC Manage - Orders");
-        orderStage.setScene(new Scene(root, 200, 300));
+        orderStage.setScene(new Scene(root, 300, 400));
         orderStage.show();
     }
     @FXML public void btn_inventory_edit_action() throws IOException {
         Stage inventoryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_inventory_edit.fxml"));
         inventoryStage.setTitle("HBC Manage - Inventory");
-        inventoryStage.setScene(new Scene(root, 200, 300));
+        inventoryStage.setScene(new Scene(root, 300, 400));
         inventoryStage.show();
     }
 
