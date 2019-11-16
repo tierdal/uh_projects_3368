@@ -34,7 +34,7 @@ public class controller_mainapp {
         Stage customerStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_customers.fxml"));
         customerStage.setTitle("HBC Manage - Customers");
-        customerStage.setScene(new Scene(root, 600, 400));
+        customerStage.setScene(new Scene(root, 750, 400));
         customerStage.show();
     }
 }

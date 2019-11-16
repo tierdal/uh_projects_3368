@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="students" uuid="86fe28bf-5550-46c2-9912-1ce5214d5104">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\eshumeyko\IdeaProjects\uh_projects_3368\Assignment 2\Assignment2\students.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
     <data-source source="LOCAL" name="HBC_DB" uuid="c1a9eabf-cd4b-4488-aacb-f2f599f893b8">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
