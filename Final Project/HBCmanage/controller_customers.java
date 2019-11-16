@@ -87,9 +87,25 @@ public class controller_customers extends class_global_vars{
         inventoryStage.show();
     }
 
-    @FXML private void btn_customers_edit_action (){
-        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
-        stage.hide();
+
+    private void fetch_RowID(){
+        int selected_index;
+        selected_index = customer_list.getSelectionModel().getSelectedIndex();
+        TableModel_InventoryData selected_record = (TableModel_InventoryData)customer_list.getItems().get(selected_index);
+        inventory_selected_id = selected_record.getInventory_ID();
+    }
+
+    @FXML private void btn_customers_edit_action () throws IOException {
+        fetch_RowID();
+        if (customer_list.getSelectionModel().getSelectedItem() == null) {
+            System.out.println("oops");
+        } else {
+            Stage customerStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("form_customer_edit.fxml"));
+            customerStage.setTitle("HBC Manage - Customers");
+            customerStage.setScene(new Scene(root, 300, 400));
+            customerStage.show();
+            }
     }
     @FXML private void btn_customers_delete_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
@@ -100,8 +116,7 @@ public class controller_customers extends class_global_vars{
         stage.hide();
     }
     @FXML private void btn_customers_apply_action (){
-        Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
-        stage.hide();
+        updateDatatable();
     }
     @FXML private void btn_customers_clear_action (){
         Stage stage = (Stage) btn_customers_exit.getScene().getWindow();
