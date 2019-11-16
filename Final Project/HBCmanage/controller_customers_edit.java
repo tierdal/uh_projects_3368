@@ -46,6 +46,7 @@ public class controller_customers_edit extends class_global_vars {
 
         try {
             ResultSet result_set;
+
             String sql_main = "SELECT * FROM finalproject_customers WHERE Customer_ID=" + selected_id;
 
             result_set = conn.createStatement().executeQuery(sql_main);
@@ -53,7 +54,7 @@ public class controller_customers_edit extends class_global_vars {
             add_fname_text.setText(result_set.getString("Customer_FirstName"));
             add_lname_text.setText(result_set.getString("Customer_LastName"));
             add_phone_text.setText(result_set.getString("Customer_PhoneNumber"));
-            //add_email_text.setText(result_set.getString("Customer_EmailAddress"));
+            add_email_text.setText(result_set.getString("Customer_EmailAddress"));
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,11 +71,13 @@ public class controller_customers_edit extends class_global_vars {
         new_fname = add_fname_text.getText();
         new_lname = add_lname_text.getText();
         new_phone = add_phone_text.getText();
-        //new_email = add_email_text.getText();
+        new_email = add_email_text.getText();
 
         try {
             ps_conn = conn.createStatement();
-            String sql = "UPDATE finalproject_customers SET Customer_FirstName='" + new_fname + "',Customer_LastName='" + new_lname + "',Customer_PhoneNumber=" + new_phone;
+
+            String sql = "UPDATE finalproject_customers SET Customer_FirstName='" + new_fname + "',Customer_LastName='" + new_lname + "',Customer_PhoneNumber='" + new_phone + "',Customer_EmailAddress='"+ new_email + "'";
+
             ps_conn.executeUpdate(sql);
             ps_conn.close();
             conn.commit();

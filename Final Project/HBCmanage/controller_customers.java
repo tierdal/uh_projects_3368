@@ -103,7 +103,7 @@ public class controller_customers extends class_global_vars{
         } else {
             Stage customerStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("form_customers_edit.fxml"));
-            customerStage.setTitle("HBC Manage - Customers");
+            customerStage.setTitle("HBC Manage - Customers - Edit");
             customerStage.setScene(new Scene(root, 300, 400));
             customerStage.show();
             }
