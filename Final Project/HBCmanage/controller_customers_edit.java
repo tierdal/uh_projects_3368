@@ -46,7 +46,8 @@ public class controller_customers_edit extends class_global_vars {
 
         try {
             ResultSet result_set;
-            String sql_main = "SELECT * FROM finalproject_customers WHERE Customer_ID =" + selected_id;
+
+            String sql_main = "SELECT * FROM finalproject_customers WHERE Customer_ID=" + selected_id;
 
             result_set = conn.createStatement().executeQuery(sql_main);
             result_set.next();
@@ -74,7 +75,9 @@ public class controller_customers_edit extends class_global_vars {
 
         try {
             ps_conn = conn.createStatement();
+
             String sql = "UPDATE finalproject_customers SET Customer_FirstName='" + new_fname + "',Customer_LastName='" + new_lname + "',Customer_PhoneNumber='" + new_phone + "',Customer_EmailAddress='"+ new_email + "'";
+
             ps_conn.executeUpdate(sql);
             ps_conn.close();
             conn.commit();
