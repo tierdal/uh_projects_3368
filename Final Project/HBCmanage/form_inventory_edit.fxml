@@ -1,14 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="HBCmanage.controller_inventory_edit"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_inventory_edit">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="300.0">
+            <children>
+                <HBox layoutX="10.0" layoutY="138.0" prefHeight="40.0" prefWidth="300.0" />
+                <HBox prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Part Number: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="30.0" prefWidth="200.0">
+                            <children>
+                                <JFXTextField fx:id="text_inventory_add_pn" prefHeight="35.0" prefWidth="195.0" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Description: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="28.0" prefWidth="200.0">
+                            <children>
+                                <JFXTextArea fx:id="text_inventory_add_description" prefHeight="75.0" prefWidth="195.0" wrapText="true" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="42.0" prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Price: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="29.0" prefWidth="202.0">
+                            <children>
+                                <JFXTextField fx:id="text_inventory_add_price" prefHeight="35.0" prefWidth="195.0" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="74.0" prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="29.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Cost: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false">
+                            <children>
+                                <JFXTextField fx:id="text_inventory_add_cost" prefHeight="35.0" prefWidth="195.0" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="40.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Type: " />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false">
+                            <children>
+                                <JFXComboBox fx:id="combo_inventory_add_type" prefHeight="35.0" prefWidth="195.0" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="40.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="QTY On Hand:" />
+                            </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="40.0" prefWidth="200.0">
+                            <children>
+                                <JFXTextField fx:id="text_inventory_add_qty" prefHeight="35.0" prefWidth="195.0" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="40.0" prefWidth="300.0" />
+                <HBox layoutX="10.0" layoutY="138.0" prefHeight="40.0" prefWidth="300.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                            <children>
+                                <JFXButton fx:id="btn_inventory_save" mnemonicParsing="false" onAction="#btn_inventory_save_action" prefHeight="40.0" prefWidth="200.0" text="SAVE" />
+                            </children></VBox>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                            <children>
+                                <JFXButton fx:id="btn_inventory_cancel" mnemonicParsing="false" onAction="#btn_inventory_cancel_action" prefHeight="40.0" prefWidth="200.0" text="CANCEL" />
+                            </children></VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>
+
