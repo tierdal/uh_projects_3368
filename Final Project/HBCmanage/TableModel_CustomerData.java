@@ -2,7 +2,7 @@ package HBCmanage;
 
 import javafx.beans.property.*;
 
-public class CustomerDataTableModel {
+public class TableModel_CustomerData {
     public IntegerProperty IDProperty() {return Customer_ID;}
     public StringProperty PartNumber_Property() {return Customer_FirstName;}
     public StringProperty Desc_Property(){return Customer_LastName;}
@@ -15,7 +15,7 @@ public class CustomerDataTableModel {
     private final StringProperty Customer_PhoneNumber = new SimpleStringProperty();
     private final StringProperty Customer_EmaiAddress = new SimpleStringProperty();
 
-    public CustomerDataTableModel(int ID, String fname, String lname, String phone, String email){
+    public TableModel_CustomerData(int ID, String fname, String lname, String phone, String email){
         Customer_ID.set(ID);
         Customer_FirstName.set(fname);
         Customer_LastName.set(lname);

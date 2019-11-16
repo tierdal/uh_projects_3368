@@ -15,16 +15,16 @@ import java.sql.*;
 public class controller_customers {
     @FXML
     public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7;
-    private ObservableList<CustomerDataTableModel> customer_data;
+    private ObservableList<TableModel_CustomerData> customer_data;
     @FXML TableView customer_list;
 
     @FXML private void initialize() {
 
-        col_1.setCellValueFactory(new PropertyValueFactory<CustomerDataTableModel,String>("Customer_ID"));
-        col_2.setCellValueFactory(new PropertyValueFactory<CustomerDataTableModel,String>("Customer_FirstName"));
-        col_3.setCellValueFactory(new PropertyValueFactory<CustomerDataTableModel,String>("Customer_LastName"));
-        col_4.setCellValueFactory(new PropertyValueFactory<CustomerDataTableModel,String>("Customer_PhoneNumber"));
-        col_5.setCellValueFactory(new PropertyValueFactory<CustomerDataTableModel,String>("Customer_EmailAddress"));
+        col_1.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_ID"));
+        col_2.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_FirstName"));
+        col_3.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_LastName"));
+        col_4.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_PhoneNumber"));
+        col_5.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_EmailAddress"));
 
         populateDataTable();
 
@@ -60,7 +60,7 @@ public class controller_customers {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                customer_data.add(new CustomerDataTableModel(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
+                customer_data.add(new TableModel_CustomerData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
             }
             customer_list.setItems(customer_data);
             result_set.close();
