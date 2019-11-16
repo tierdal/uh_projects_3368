@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="HBCmanage.controller_mainapp"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_mainapp">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <VBox minHeight="-Infinity" prefHeight="50.0" prefWidth="600.0" />
+            <VBox minHeight="-Infinity" prefHeight="300.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="300.0" prefWidth="600.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXButton id="salesorderbg" fx:id="button_salesorder" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_salesorders_action" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Sales Orders">
+                                       <font>
+                                          <Font name="Centaur" size="24.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXButton id="inventorybg" fx:id="button_inventory" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_inventory_action" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Inventory">
+                                       <font>
+                                          <Font name="Centaur" size="24.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXButton id="customersbg" fx:id="button_customers" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btn_customers_action" prefHeight="300.0" prefWidth="200.0" stylesheets="@style.css" text="Customers">
+                                       <font>
+                                          <Font name="Centaur" size="24.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children></VBox>
+            <VBox prefHeight="50.0" prefWidth="600.0" />
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
