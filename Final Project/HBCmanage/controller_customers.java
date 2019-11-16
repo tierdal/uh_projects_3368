@@ -102,7 +102,7 @@ public class controller_customers extends class_global_vars{
             System.out.println("oops");
         } else {
             Stage customerStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("form_customer_edit.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("form_customers_edit.fxml"));
             customerStage.setTitle("HBC Manage - Customers");
             customerStage.setScene(new Scene(root, 300, 400));
             customerStage.show();
@@ -121,7 +121,7 @@ public class controller_customers extends class_global_vars{
             fetch_RowID();
             Connection conn = this.connect_db();
             try {
-                String sql = "DELETE FROM finalproject_customers WHERE Customer_ID_Id = '" + inventory_selected_id + "';";
+                String sql = "DELETE FROM finalproject_customers WHERE Customer_ID_Id = '" + customer_selected_id + "';";
                 PreparedStatement sql_statement = conn.prepareStatement(sql);
                 sql_statement.executeUpdate();
                 conn.commit();
