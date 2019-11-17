@@ -112,7 +112,7 @@ public class controller_orders extends class_global_vars implements Initializabl
             System.out.println("oops");
         } else {
             Stage inventoryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("form_orders_edit_add.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("form_orders_edit.fxml"));
             inventoryStage.setTitle("HBC Manage - Orders - Edit");
             inventoryStage.setScene(new Scene(root, 1000, 800));
             inventoryStage.show();

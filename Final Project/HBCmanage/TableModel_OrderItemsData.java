@@ -1,4 +1,4 @@
-package HBCmanage;
+/*package HBCmanage;
 
 import javafx.beans.property.*;
 
@@ -56,3 +56,4 @@ public class TableModel_OrderItemsData {
     public double getOrderItems_Price(){return OrderItems_Price.get();}
     public void setOrderItems_Price(double price){OrderItems_Price.set(price);}
 }
+*/

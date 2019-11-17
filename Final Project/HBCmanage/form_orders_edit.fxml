@@ -1,14 +1,1053 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="HBCmanage.FormsOrdersEdit"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_orders_edit">
+    <children>
+        <VBox prefHeight="800.0" prefWidth="1000.0">
+            <children>
+                <VBox prefHeight="150.0" prefWidth="100.0">
+                    <children>
+                        <HBox prefHeight="150.0" prefWidth="1000.0">
+                            <children>
+                                <HBox prefHeight="150.0" prefWidth="350.0">
+                                    <children>
+                                        <VBox prefHeight="150.0" prefWidth="350.0">
+                                            <children>
+                                                <VBox prefHeight="30.0" prefWidth="350.0">
+                                                    <children>
+                                                        <JFXComboBox fx:id="combo_customerSelect" onAction="#updateCustomerInfo" prefHeight="30.0" prefWidth="350.0" />
+                                                    </children>
+                                                </VBox>
+                                                <HBox prefHeight="30.0" prefWidth="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="ID: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="label_customerid" prefHeight="30.0" prefWidth="200.0">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="30.0" prefWidth="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Name: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="label_name" prefHeight="30.0" prefWidth="200.0">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Phone: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="label_phone" prefHeight="30.0" prefWidth="200.0">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Email: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="label_email" prefHeight="30.0" prefWidth="200.0">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <VBox prefHeight="150.0" prefWidth="300.0">
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="75.0" prefWidth="300.0" text="Order ID">
+                                                    <font>
+                                                        <Font name="Centaur" size="48.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="label_orderid" alignment="CENTER" prefHeight="75.0" prefWidth="300.0">
+                                                    <font>
+                                                        <Font name="Centaur" size="48.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children></HBox>
+                                <HBox prefHeight="150.0" prefWidth="350.0">
+                                    <children>
+                                        <VBox prefHeight="150.0" prefWidth="350.0">
+                                            <children>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Status: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <JFXComboBox fx:id="combo_statusSelect" prefHeight="30.0" prefWidth="200.0" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Tracking #: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <JFXTextField fx:id="text_tracking" prefHeight="30.0" prefWidth="200.0" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Date: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <JFXDatePicker fx:id="date_created" prefHeight="30.0" prefWidth="200.0" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="30.0" prefWidth="200.0" />
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="150.0" text="Employee: ">
+                                                            <font>
+                                                                <Font name="Centaur" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <JFXComboBox fx:id="combo_employeeSelect" prefHeight="30.0" prefWidth="200.0" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="425.0" prefWidth="100.0">
+                    <children>
+                        <VBox prefHeight="25.0" prefWidth="100.0" />
+                        <HBox prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="Line Item">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" text="Part Number">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0" text="Description">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0" text="Quantity">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0" text="Price">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" layoutX="810.0" layoutY="10.0" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0" text="Ext. Price">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_1" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_1" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="1">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_1" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_1" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_1" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_1" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_1" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_2" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_2" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="2">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_2" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_2" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_2" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_2" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_2" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_3" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_3" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="3">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_3" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_3" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_3" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_3" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_3" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_3" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="110.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_4" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_4" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="4">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_4" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_4" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_4" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_4" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_4" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_4" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="135.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_5" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_5" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="5">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_5" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_5" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_5" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_5" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_5" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="160.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_6" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_6" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_6" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="6">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_6" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_6" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_6" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_6" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_6" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_6" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="185.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_7" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_7" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_7" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="7">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_7" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_7" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_7" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_7" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_7" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_7" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="210.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_8" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_8" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_8" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="8">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_8" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_8" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_8" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_8" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_8" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_8" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="235.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_9" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_9" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_9" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="9">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_9" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_9" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_9" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_9" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_9" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_9" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="260.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_10" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_10" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_10" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="10">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_10" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_10" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_10" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_10" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_10" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="285.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_11" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_11" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_11" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="11">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_11" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_11" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_11" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_11" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_11" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_11" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="285.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_12" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_12" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_12" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="12">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_12" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_12" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_12" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_12" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_12" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_12" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="335.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_13" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_13" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_13" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="13">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_13" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_13" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_13" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_13" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_13" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_13" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="260.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_14" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_14" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_14" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="14">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_14" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_14" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_14" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_14" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_14" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_14" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="285.0" prefHeight="25.0" prefWidth="1000.0">
+                            <children>
+                                <Label fx:id="label_orderitemid_15" minWidth="-Infinity" prefWidth="0.0" text="OrderItems_ID" visible="false" />
+                                <Label fx:id="label_inventoryid_15" minWidth="-Infinity" prefWidth="0.0" text="Inventory_ID" visible="false" />
+                                <Label fx:id="label_lineitem_15" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" text="15">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </Label>
+                                <JFXComboBox fx:id="combo_pn_15" minHeight="-Infinity" minWidth="-Infinity" onAction="#lineitemadd_action_15" prefWidth="200.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXComboBox>
+                                <JFXTextArea fx:id="text_desc_15" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="425.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextArea>
+                                <JFXTextField fx:id="text_qty_15" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="text_price_15" minHeight="-Infinity" onKeyReleased="#calculateTotal" prefHeight="25.0" prefWidth="100.0">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </JFXTextField>
+                                <Label fx:id="label_extprice_15" alignment="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <HBox layoutX="10.0" layoutY="585.0" prefHeight="50.0" prefWidth="1000.0">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="700.0" />
+                        <HBox prefHeight="50.0" prefWidth="300.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="100.0" text="Total: ">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="label_total" prefHeight="50.0" prefWidth="200.0">
+                                    <font>
+                                        <Font name="Centaur" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="125.0" prefWidth="1000.0" />
+                <HBox prefHeight="50.0" prefWidth="1000.0">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="700.0" />
+                        <HBox prefHeight="50.0" prefWidth="300.0">
+                            <children>
+                                <JFXButton fx:id="btn_save" mnemonicParsing="false" onAction="#btn_save_action" prefHeight="50.0" prefWidth="150.0" text="SAVE">
+                                    <font>
+                                        <Font name="Centaur" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="btn_exit" mnemonicParsing="false" onAction="#btn_exit_action" prefHeight="50.0" prefWidth="150.0" text="EXIT">
+                                    <font>
+                                        <Font name="Centaur" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>
