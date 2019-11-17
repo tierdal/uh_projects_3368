@@ -152,7 +152,7 @@ public class controller_customers extends class_global_vars{
 
         fname = " Customer_FirstName LIKE '" + filter_fname.getText() + "%'";
         lname = " AND Customer_LastName LIKE '" + filter_lname.getText() + "%'";
-        //email = " Customer_EmailAddress LIKE '" + filter_email.getText() + "%'";
+        email = " Customer_EmailAddress LIKE '" + filter_email.getText() + "%'";
 
 
         Connection conn = this.connect_db();
