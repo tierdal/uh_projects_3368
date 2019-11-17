@@ -76,7 +76,7 @@ public class controller_customers_edit extends class_global_vars {
         try {
             ps_conn = conn.createStatement();
 
-            String sql = "UPDATE finalproject_customers SET Customer_FirstName='" + new_fname + "',Customer_LastName='" + new_lname + "',Customer_PhoneNumber='" + new_phone + "',Customer_EmailAddress='"+ new_email + "'";
+            String sql = "UPDATE finalproject_customers SET Customer_FirstName='" + new_fname + "',Customer_LastName='" + new_lname + "',Customer_PhoneNumber='" + new_phone + "',Customer_EmailAddress='"+ new_email + "' WHERE Customer_ID = " + selected_id;
 
             ps_conn.executeUpdate(sql);
             ps_conn.close();

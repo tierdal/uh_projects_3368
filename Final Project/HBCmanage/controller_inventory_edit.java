@@ -111,7 +111,7 @@ public class controller_inventory_edit extends class_global_vars {
 
         try {
             ps_conn = conn.createStatement();
-            String sql = "UPDATE finalproject_inventory SET Inventory_PartNumber='" + value_pn + "',Inventory_Description='" + value_desc + "',Inventory_Price=" + value_price + ",Inventory_Type='" +value_type + "',Inventory_Cost=" + value_cost + ",Inventory_QtyOnHand="+ value_qty;
+            String sql = "UPDATE finalproject_inventory SET Inventory_PartNumber='" + value_pn + "',Inventory_Description='" + value_desc + "',Inventory_Price=" + value_price + ",Inventory_Type='" +value_type + "',Inventory_Cost=" + value_cost + ",Inventory_QtyOnHand="+ value_qty + " WHERE Inventory_ID=" + selected_id;
             ps_conn.executeUpdate(sql);
             ps_conn.close();
             conn.commit();
