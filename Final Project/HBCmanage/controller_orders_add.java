@@ -8,16 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.*;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -29,7 +24,6 @@ public class controller_orders_add extends class_global_vars implements Initiali
     @FXML public JFXTextArea text_desc_1,text_desc_2,text_desc_3,text_desc_4,text_desc_5,text_desc_6,text_desc_7,text_desc_8,text_desc_9,text_desc_10,text_desc_11,text_desc_12,text_desc_13,text_desc_14,text_desc_15;
     @FXML public Label label_name,label_customerid,label_phone,label_email,label_total,label_orderid,label_inventoryid_1,label_inventoryid_2,label_inventoryid_3,label_inventoryid_4,label_inventoryid_5,label_inventoryid_6,label_inventoryid_7,label_inventoryid_8,label_inventoryid_9,label_inventoryid_10,label_inventoryid_11,label_inventoryid_12,label_inventoryid_13,label_inventoryid_14,label_inventoryid_15,label_orderitemid_1,label_orderitemid_2,label_orderitemid_3,label_orderitemid_4,label_orderitemid_5,label_orderitemid_6,label_orderitemid_7,label_orderitemid_8,label_orderitemid_9,label_orderitemid_10,label_orderitemid_11,label_orderitemid_12,label_orderitemid_13,label_orderitemid_14,label_orderitemid_15,label_extprice_1,label_extprice_2,label_extprice_3,label_extprice_4,label_extprice_5,label_extprice_6,label_extprice_7,label_extprice_8,label_extprice_9,label_extprice_10,label_extprice_11,label_extprice_12,label_extprice_13,label_extprice_14,label_extprice_15;
     @FXML public JFXDatePicker date_created;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -500,10 +494,38 @@ public class controller_orders_add extends class_global_vars implements Initiali
         }
     }
 
+    private void deduct_inventory(int InventoryID, double Quantity){
+        double Balance=0;
+        String ItemType="";
+        Statement ps_conn;
+        Connection conn = this.connect_db();
+        try {
+            String sql_get = "SELECT * FROM finalproject_inventory WHERE Inventory_ID LIKE " + InventoryID + "";
+            ResultSet result_set = conn.createStatement().executeQuery(sql_get);
+
+            while (result_set.next()) {
+                Balance = Double.parseDouble(result_set.getString("Inventory_QtyOnHand"))-Quantity;
+                ItemType = result_set.getString("Inventory_Type");
+            }
+            if (!ItemType.equals("Service")) {
+                String sql_set = "UPDATE finalproject_inventory SET Inventory_QtyOnHand=" + Balance + " WHERE Inventory_ID=" + InventoryID;
+                ps_conn = conn.createStatement();
+                ps_conn.executeUpdate(sql_set);
+                ps_conn.close();
+                conn.commit();
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+    }
+
     public void save_order(){
         String value_customerName,value_tracking,value_status,value_employeeName,value_ln1_pn,value_ln2_pn,value_ln3_pn,value_ln4_pn,value_ln5_pn,value_ln6_pn,value_ln7_pn,value_ln8_pn,value_ln9_pn,value_ln10_pn,value_ln11_pn,value_ln12_pn,value_ln13_pn,value_ln14_pn,value_ln15_pn,value_ln1_desc,value_ln2_desc,value_ln3_desc,value_ln4_desc,value_ln5_desc,value_ln6_desc,value_ln7_desc,value_ln8_desc,value_ln9_desc,value_ln10_desc,value_ln11_desc,value_ln12_desc,value_ln13_desc,value_ln14_desc,value_ln15_desc;
-        double value_orderTotal,value_ln1_qty,value_ln2_qty,value_ln3_qty,value_ln4_qty,value_ln5_qty,value_ln6_qty,value_ln7_qty,value_ln8_qty,value_ln9_qty,value_ln10_qty,value_ln11_qty,value_ln12_qty,value_ln13_qty,value_ln14_qty,value_ln15_qty,value_ln1_price,value_ln2_price,value_ln3_price,value_ln4_price,value_ln5_price,value_ln6_price,value_ln7_price,value_ln8_price,value_ln9_price,value_ln10_price,value_ln11_price,value_ln12_price,value_ln13_price,value_ln14_price,value_ln15_price;
-        int value_customerID,value_orderID,value_ln1_inventoryID,value_ln2_inventoryID,value_ln3_inventoryID,value_ln4_inventoryID,value_ln5_inventoryID,value_ln6_inventoryID,value_ln7_inventoryID,value_ln8_inventoryID,value_ln9_inventoryID,value_ln10_inventoryID,value_ln11_inventoryID,value_ln12_inventoryID,value_ln13_inventoryID,value_ln14_inventoryID,value_ln15_inventoryID;
+        double value_orderTotal,value_ln1_qty = 0,value_ln2_qty = 0,value_ln3_qty = 0,value_ln4_qty = 0,value_ln5_qty = 0,value_ln6_qty = 0,value_ln7_qty = 0,value_ln8_qty = 0,value_ln9_qty = 0,value_ln10_qty = 0,value_ln11_qty = 0,value_ln12_qty = 0,value_ln13_qty = 0,value_ln14_qty = 0,value_ln15_qty = 0,value_ln1_price,value_ln2_price,value_ln3_price,value_ln4_price,value_ln5_price,value_ln6_price,value_ln7_price,value_ln8_price,value_ln9_price,value_ln10_price,value_ln11_price,value_ln12_price,value_ln13_price,value_ln14_price,value_ln15_price;
+        int value_customerID,value_orderID,value_ln1_inventoryID = 0,value_ln2_inventoryID = 0,value_ln3_inventoryID = 0,value_ln4_inventoryID = 0,value_ln5_inventoryID = 0,value_ln6_inventoryID = 0,value_ln7_inventoryID = 0,value_ln8_inventoryID = 0,value_ln9_inventoryID = 0,value_ln10_inventoryID = 0,value_ln11_inventoryID = 0,value_ln12_inventoryID = 0,value_ln13_inventoryID = 0,value_ln14_inventoryID = 0,value_ln15_inventoryID = 0;
         String sql_ln1 = null,sql_ln2 = null,sql_ln3 = null,sql_ln4 = null,sql_ln5 = null,sql_ln6 = null,sql_ln7 = null,sql_ln8 = null,sql_ln9 = null,sql_ln10 = null,sql_ln11 = null,sql_ln12 = null,sql_ln13 = null,sql_ln14 = null,sql_ln15 = null;
 
         Statement ps_conn;
@@ -656,7 +678,6 @@ public class controller_orders_add extends class_global_vars implements Initiali
             sql_ln15 = "INSERT INTO finalproject_orderitems(Order_ID,Inventory_ID,Inventory_PartNumber,Inventory_Description,OrderItems_LineItem, OrderItems_Price,OrderItems_Quantity)" +
                     " VALUES(" + value_orderID + "," + value_ln15_inventoryID + ",'" + value_ln15_pn + "','" + value_ln15_desc + "'," + 15 + "," + value_ln15_price + "," + value_ln15_qty + ")";
         }
-        
 
         Connection conn = this.connect_db();
 
@@ -665,21 +686,21 @@ public class controller_orders_add extends class_global_vars implements Initiali
 
             ps_conn.executeUpdate(sql_order);
 
-            if (!(sql_ln1 == null)){ ps_conn.executeUpdate(sql_ln1); }
-            if (!(sql_ln2 == null)){ ps_conn.executeUpdate(sql_ln2); }
-            if (!(sql_ln3 == null)){ ps_conn.executeUpdate(sql_ln3); }
-            if (!(sql_ln4 == null)){ ps_conn.executeUpdate(sql_ln4); }
-            if (!(sql_ln5 == null)){ ps_conn.executeUpdate(sql_ln5); }
-            if (!(sql_ln6 == null)){ ps_conn.executeUpdate(sql_ln6); }
-            if (!(sql_ln7 == null)){ ps_conn.executeUpdate(sql_ln7); }
-            if (!(sql_ln8 == null)){ ps_conn.executeUpdate(sql_ln8); }
-            if (!(sql_ln9 == null)){ ps_conn.executeUpdate(sql_ln9); }
-            if (!(sql_ln10 == null)){ ps_conn.executeUpdate(sql_ln10); }
-            if (!(sql_ln11 == null)){ ps_conn.executeUpdate(sql_ln11); }
-            if (!(sql_ln12 == null)){ ps_conn.executeUpdate(sql_ln12); }
-            if (!(sql_ln13 == null)){ ps_conn.executeUpdate(sql_ln13); }
-            if (!(sql_ln14 == null)){ ps_conn.executeUpdate(sql_ln14); }
-            if (!(sql_ln15 == null)){ ps_conn.executeUpdate(sql_ln15); }
+            if (!(sql_ln1 == null)){ ps_conn.executeUpdate(sql_ln1); deduct_inventory(value_ln1_inventoryID,value_ln1_qty);}
+            if (!(sql_ln2 == null)){ ps_conn.executeUpdate(sql_ln2); deduct_inventory(value_ln2_inventoryID,value_ln2_qty);}
+            if (!(sql_ln3 == null)){ ps_conn.executeUpdate(sql_ln3); deduct_inventory(value_ln3_inventoryID,value_ln3_qty);}
+            if (!(sql_ln4 == null)){ ps_conn.executeUpdate(sql_ln4); deduct_inventory(value_ln4_inventoryID,value_ln4_qty);}
+            if (!(sql_ln5 == null)){ ps_conn.executeUpdate(sql_ln5); deduct_inventory(value_ln5_inventoryID,value_ln5_qty);}
+            if (!(sql_ln6 == null)){ ps_conn.executeUpdate(sql_ln6); deduct_inventory(value_ln6_inventoryID,value_ln6_qty);}
+            if (!(sql_ln7 == null)){ ps_conn.executeUpdate(sql_ln7); deduct_inventory(value_ln7_inventoryID,value_ln7_qty);}
+            if (!(sql_ln8 == null)){ ps_conn.executeUpdate(sql_ln8); deduct_inventory(value_ln8_inventoryID,value_ln8_qty);}
+            if (!(sql_ln9 == null)){ ps_conn.executeUpdate(sql_ln9); deduct_inventory(value_ln9_inventoryID,value_ln9_qty);}
+            if (!(sql_ln10 == null)){ ps_conn.executeUpdate(sql_ln10); deduct_inventory(value_ln10_inventoryID,value_ln10_qty);}
+            if (!(sql_ln11 == null)){ ps_conn.executeUpdate(sql_ln11); deduct_inventory(value_ln11_inventoryID,value_ln11_qty);}
+            if (!(sql_ln12 == null)){ ps_conn.executeUpdate(sql_ln12); deduct_inventory(value_ln12_inventoryID,value_ln12_qty);}
+            if (!(sql_ln13 == null)){ ps_conn.executeUpdate(sql_ln13); deduct_inventory(value_ln13_inventoryID,value_ln13_qty);}
+            if (!(sql_ln14 == null)){ ps_conn.executeUpdate(sql_ln14); deduct_inventory(value_ln14_inventoryID,value_ln14_qty);}
+            if (!(sql_ln15 == null)){ ps_conn.executeUpdate(sql_ln15); deduct_inventory(value_ln15_inventoryID,value_ln15_qty);}
 
             ps_conn.close();
             conn.commit();
