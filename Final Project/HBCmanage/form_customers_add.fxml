@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_customers_add">
+<AnchorPane prefHeight="280.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HBCmanage.controller_customers_add">
     <children>
-        <VBox prefHeight="400.0" prefWidth="300.0">
+        <VBox prefHeight="280.0" prefWidth="300.0">
             <children>
                 <HBox layoutX="10.0" layoutY="138.0" prefHeight="40.0" prefWidth="300.0" />
                 <HBox prefHeight="40.0" prefWidth="300.0">

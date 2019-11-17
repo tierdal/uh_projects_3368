@@ -32,7 +32,8 @@ public class controller_orders extends class_global_vars implements Initializabl
     @FXML TableView order_tableview;
     @FXML JFXButton btn_orders_refresh,btn_orders_delete,btn_orders_edit,btn_orders_add,btn_orders_exit,btn_orders_clear,btn_orders_apply;
     public int selected_index;
-    @FXML JFXTextField filter_orders_id,filter_orders_fname,filter_orders_lname,filter_orders_tracking,filter_orders_date;
+    @FXML JFXTextField filter_orders_id,filter_orders_fname,filter_orders_lname,filter_orders_tracking;
+    @FXML JFXComboBox filter_orders_status;
 
     //Connect to remote MySQL DB
     private Connection connect_db() {
@@ -87,7 +88,17 @@ public class controller_orders extends class_global_vars implements Initializabl
         col_7.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Employee_Name"));
 
         populateDataTable();
+        populateStatusList();
 
+    }
+
+    private void populateStatusList() {
+        ObservableList<String> inventory_type_list = FXCollections.observableArrayList();
+        inventory_type_list.add("New");
+        inventory_type_list.add("In Progress");
+        inventory_type_list.add("Stalled");
+        inventory_type_list.add("Completed");
+        filter_orders_status.setItems(inventory_type_list);
     }
 
     @FXML public void btn_orders_add_action() throws IOException {
@@ -151,7 +162,7 @@ public class controller_orders extends class_global_vars implements Initializabl
         filter_orders_fname.setText("");
         filter_orders_lname.setText("");
         filter_orders_tracking.setText("");
-        filter_orders_date.setText("");
+        filter_orders_status.valueProperty().set(null);
         populateDataTable();
     }
 
@@ -161,7 +172,7 @@ public class controller_orders extends class_global_vars implements Initializabl
     }
 
     @FXML public void updateDatatable(){
-        String orderid="", tracking="", fname = "", lname = "", email="", date = "";
+        String orderid="", tracking="", fname = "", lname = "", status = "";
 
         order_data = null;
         order_data = FXCollections.observableArrayList();
@@ -170,11 +181,11 @@ public class controller_orders extends class_global_vars implements Initializabl
         tracking = " AND Order_TrackingNumber LIKE '" + filter_orders_tracking.getText() + "%'";
         fname = " AND Customer_FirstName LIKE '" + filter_orders_fname.getText() + "%'";
         lname = " AND Customer_LastName LIKE '" + filter_orders_lname.getText() + "%'";
-        //date = " Customer_EmailAddress LIKE '" + filter_email.getText() + "%'";
+        status = " AND Order_TrackingNumber LIKE '" + filter_orders_status.getValue() + "'";
 
 
         Connection conn = this.connect_db();
-        String sql_main = "SELECT * FROM finalproject_orders WHERE" + orderid + tracking + fname + lname + date + " ORDER BY Order_ID";
+        String sql_main = "SELECT * FROM finalproject_orders WHERE" + orderid + tracking + fname + lname + status + " ORDER BY Order_ID";
         System.out.println(sql_main);
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);

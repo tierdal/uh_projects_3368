@@ -84,7 +84,7 @@ public class controller_customers extends class_global_vars{
         Stage inventoryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_customers_add.fxml"));
         inventoryStage.setTitle("HBC Manage - Customers");
-        inventoryStage.setScene(new Scene(root, 300, 400));
+        inventoryStage.setScene(new Scene(root, 300, 280));
         inventoryStage.show();
     }
 
@@ -104,7 +104,7 @@ public class controller_customers extends class_global_vars{
             Stage customerStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("form_customers_edit.fxml"));
             customerStage.setTitle("HBC Manage - Customers - Edit");
-            customerStage.setScene(new Scene(root, 300, 400));
+            customerStage.setScene(new Scene(root, 300, 280));
             customerStage.show();
             }
     }
