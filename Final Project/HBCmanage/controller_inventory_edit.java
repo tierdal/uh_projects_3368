@@ -86,6 +86,7 @@ public class controller_inventory_edit extends class_global_vars {
 
     private void populateTypeList() {
         ObservableList<String> inventory_type_list = FXCollections.observableArrayList();
+        inventory_type_list.add("");
         inventory_type_list.add("Service");
         inventory_type_list.add("Part");
         inventory_type_list.add("Product");

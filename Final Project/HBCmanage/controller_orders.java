@@ -27,12 +27,12 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class controller_orders extends class_global_vars implements Initializable {
-    @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8,col_9;
+    @FXML public TableColumn col_1,col_2,col_3,col_4,col_5,col_6,col_7,col_8;
     private ObservableList<TableModel_OrderData> order_data;
     @FXML TableView order_tableview;
     @FXML JFXButton btn_orders_refresh,btn_orders_delete,btn_orders_edit,btn_orders_add,btn_orders_exit,btn_orders_clear,btn_orders_apply;
     public int selected_index;
-    @FXML JFXTextField filter_orders_id,filter_orders_fname,filter_orders_lname,filter_orders_tracking;
+    @FXML JFXTextField filter_orders_id,filter_orders_name,filter_orders_tracking;
     @FXML JFXComboBox filter_orders_status;
 
     //Connect to remote MySQL DB
@@ -64,7 +64,7 @@ public class controller_orders extends class_global_vars implements Initializabl
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getString(4),result_set.getDouble(5),result_set.getString(6),result_set.getString(7),result_set.getString(8),result_set.getInt(9),result_set.getString(10)));
+                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getDouble(4),result_set.getString(5),result_set.getString(6),result_set.getString(7),result_set.getString(8)));
             }
             order_tableview.setItems(order_data);
             result_set.close();
@@ -78,14 +78,12 @@ public class controller_orders extends class_global_vars implements Initializabl
     public void initialize(URL location, ResourceBundle resources) {
         col_1.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_ID"));
         col_2.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Customer_ID"));
-        col_3.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Customer_FirstName"));
-        col_4.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Customer_LastName"));
-        col_5.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_Total"));
-        col_6.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_TrackingNumber"));
-        col_7.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_Status"));
+        col_3.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Customer_Name"));
+        col_4.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_Total"));
+        col_5.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_TrackingNumber"));
+        col_6.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_Status"));
         col_7.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Order_DateCreated"));
-        col_7.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Employee_ID"));
-        col_7.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Employee_Name"));
+        col_8.setCellValueFactory(new PropertyValueFactory<TableModel_InventoryData,String>("Employee_Name"));
 
         populateDataTable();
         populateStatusList();
@@ -105,7 +103,7 @@ public class controller_orders extends class_global_vars implements Initializabl
         Stage orderStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_orders_add.fxml"));
         orderStage.setTitle("HBC Manage - Orders - Add");
-        orderStage.setScene(new Scene(root, 300, 400));
+        orderStage.setScene(new Scene(root, 1000, 800));
         orderStage.show();
     }
     @FXML public void btn_orders_edit_action() throws IOException {
@@ -114,9 +112,9 @@ public class controller_orders extends class_global_vars implements Initializabl
             System.out.println("oops");
         } else {
             Stage inventoryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("form_orders_edit_add.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("form_orders_edit.fxml"));
             inventoryStage.setTitle("HBC Manage - Orders - Edit");
-            inventoryStage.setScene(new Scene(root, 300, 400));
+            inventoryStage.setScene(new Scene(root, 1000, 800));
             inventoryStage.show();
         }
     }
@@ -159,8 +157,7 @@ public class controller_orders extends class_global_vars implements Initializabl
 
     @FXML private void clearFilters(){
         filter_orders_id.setText("");
-        filter_orders_fname.setText("");
-        filter_orders_lname.setText("");
+        filter_orders_name.setText("");
         filter_orders_tracking.setText("");
         filter_orders_status.valueProperty().set(null);
         populateDataTable();
@@ -172,26 +169,25 @@ public class controller_orders extends class_global_vars implements Initializabl
     }
 
     @FXML public void updateDatatable(){
-        String orderid="", tracking="", fname = "", lname = "", status = "";
+        String orderid="", tracking="", name = "", status = "";
 
         order_data = null;
         order_data = FXCollections.observableArrayList();
 
         orderid = " Order_ID LIKE '" + filter_orders_id.getText() + "%'";
         tracking = " AND Order_TrackingNumber LIKE '" + filter_orders_tracking.getText() + "%'";
-        fname = " AND Customer_FirstName LIKE '" + filter_orders_fname.getText() + "%'";
-        lname = " AND Customer_LastName LIKE '" + filter_orders_lname.getText() + "%'";
+        name = " AND Customer_Name LIKE '" + filter_orders_name.getText() + "%'";
         status = " AND Order_TrackingNumber LIKE '" + filter_orders_status.getValue() + "'";
 
 
         Connection conn = this.connect_db();
-        String sql_main = "SELECT * FROM finalproject_orders WHERE" + orderid + tracking + fname + lname + status + " ORDER BY Order_ID";
+        String sql_main = "SELECT * FROM finalproject_orders WHERE" + orderid + tracking + name + status + " ORDER BY Order_ID";
         System.out.println(sql_main);
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getString(4),result_set.getDouble(5),result_set.getString(6),result_set.getString(7),result_set.getString(8),result_set.getInt(9),result_set.getString(10)));
+                order_data.add(new TableModel_OrderData(result_set.getInt(1),result_set.getInt(2),result_set.getString(3),result_set.getDouble(4),result_set.getString(5),result_set.getString(6),result_set.getString(7),result_set.getString(8)));
             }
             order_tableview.setItems(order_data);
 

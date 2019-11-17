@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class controller_mainapp {
-    @FXML JFXButton button_customers,button_inventory,button_salesorder;
+    @FXML JFXButton button_customers,button_inventory,button_salesorder,btn_exit;
 
     @FXML public void btn_salesorders_action() throws IOException {
         Stage orderStage = new Stage();
@@ -32,5 +32,10 @@ public class controller_mainapp {
         customerStage.setTitle("HBC Manage - Customers");
         customerStage.setScene(new Scene(root, 750, 400));
         customerStage.show();
+    }
+
+    @FXML public void btn_exit_action(){
+        Stage stage = (Stage) btn_exit.getScene().getWindow();
+        stage.hide();
     }
 }

@@ -17,7 +17,7 @@ public class controller_customers_edit extends class_global_vars {
     @FXML
     public JFXButton btn_customers_save,btn_customers_cancel;
     @FXML
-    public JFXTextField add_fname_text, add_lname_text, add_phone_text, add_email_text;
+    public JFXTextField add_name_text, add_phone_text, add_email_text;
 
     private int selected_id;
     @FXML private void initialize() {
@@ -51,8 +51,7 @@ public class controller_customers_edit extends class_global_vars {
 
             result_set = conn.createStatement().executeQuery(sql_main);
             result_set.next();
-            add_fname_text.setText(result_set.getString("Customer_FirstName"));
-            add_lname_text.setText(result_set.getString("Customer_LastName"));
+            add_name_text.setText(result_set.getString("Customer_Name"));
             add_phone_text.setText(result_set.getString("Customer_PhoneNumber"));
             add_email_text.setText(result_set.getString("Customer_EmailAddress"));
 
@@ -66,17 +65,16 @@ public class controller_customers_edit extends class_global_vars {
         Connection conn = this.connect_db();
         Statement ps_conn;
 
-        String new_fname, new_lname, new_phone, new_email;
+        String new_name, new_phone, new_email;
 
-        new_fname = add_fname_text.getText();
-        new_lname = add_lname_text.getText();
+        new_name = add_name_text.getText();
         new_phone = add_phone_text.getText();
         new_email = add_email_text.getText();
 
         try {
             ps_conn = conn.createStatement();
 
-            String sql = "UPDATE finalproject_customers SET Customer_FirstName='" + new_fname + "',Customer_LastName='" + new_lname + "',Customer_PhoneNumber='" + new_phone + "',Customer_EmailAddress='"+ new_email + "' WHERE Customer_ID = " + selected_id;
+            String sql = "UPDATE finalproject_customers SET Customer_Name='" + new_name + "',Customer_PhoneNumber='" + new_phone + "',Customer_EmailAddress='"+ new_email + "' WHERE Customer_ID = " + selected_id;
 
             ps_conn.executeUpdate(sql);
             ps_conn.close();

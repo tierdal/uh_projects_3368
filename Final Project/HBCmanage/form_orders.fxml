@@ -69,42 +69,32 @@
                                                                 <PropertyValueFactory property="Customer_ID" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn fx:id="col_3" editable="false" prefWidth="200" text="First Name">
+                                                        <TableColumn fx:id="col_3" editable="false" prefWidth="250.0" text="Name">
                                                             <cellValueFactory>
                                                                 <PropertyValueFactory property="Customer_FirstName" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn fx:id="col_4" editable="false" prefWidth="200" text="Last Name">
-                                                            <cellValueFactory>
-                                                                <PropertyValueFactory property="Customer_LastName" />
-                                                            </cellValueFactory>
-                                                        </TableColumn>
-                                                        <TableColumn fx:id="col_5" editable="false" prefWidth="75" text="Total">
+                                                        <TableColumn fx:id="col_4" editable="false" prefWidth="100.0" text="Total">
                                                             <cellValueFactory>
                                                                 <PropertyValueFactory property="Order_Total" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn fx:id="col_6" editable="false" prefWidth="125" text="Tracking Number">
+                                                        <TableColumn fx:id="col_5" editable="false" prefWidth="175.0" text="Tracking Number">
                                                             <cellValueFactory>
                                                                 <PropertyValueFactory property="Order_TrackingNumber" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn fx:id="col_7" editable="false" prefWidth="75" text="Status">
+                                                        <TableColumn fx:id="col_6" editable="false" prefWidth="125.0" text="Status">
                                                             <cellValueFactory>
                                                                 <PropertyValueFactory property="Order_Status" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn fx:id="col_8" editable="false" prefWidth="100" text="Date Created">
+                                                        <TableColumn fx:id="col_7" editable="false" prefWidth="100" text="Date Created">
                                                             <cellValueFactory>
                                                                 <PropertyValueFactory property="Order_DateCreated" />
                                                             </cellValueFactory>
                                                         </TableColumn>
-                                                        <TableColumn fx:id="col_9" editable="false" prefWidth="50" text="Employee ID" visible="false">
-                                                            <cellValueFactory>
-                                                                <PropertyValueFactory property="Employee_ID" />
-                                                            </cellValueFactory>
-                                                        </TableColumn>
-                                                        <TableColumn fx:id="col_10" editable="false" prefWidth="125" text="Employee Name">
+                                                        <TableColumn fx:id="col_8" editable="false" prefWidth="150.0" text="Employee Name">
                                                             <cellValueFactory>
                                                                 <PropertyValueFactory property="Employee_Name" />
                                                             </cellValueFactory>
@@ -158,26 +148,12 @@
                                     </VBox>
                                     <VBox prefHeight="75.0" prefWidth="200.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="First Name" textAlignment="CENTER">
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Name" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Centaur" size="14.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="filter_orders_fname" prefHeight="30.0">
-                                             <VBox.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </JFXTextField>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="75.0" prefWidth="200.0">
-                                       <children>
-                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Last Name" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Centaur" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="filter_orders_lname" prefHeight="30.0">
+                                          <JFXTextField fx:id="filter_orders_name" prefHeight="30.0">
                                              <VBox.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </VBox.margin>
