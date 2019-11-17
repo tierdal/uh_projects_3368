@@ -137,7 +137,7 @@
                                                 <Font name="Centaur" size="18.0" />
                                              </font>
                                           </Label>
-                                          <JFXDatePicker fx:id="date_created" onAction="#datewtf" prefHeight="30.0" prefWidth="200.0" />
+                                          <JFXDatePicker fx:id="date_created" prefHeight="30.0" prefWidth="200.0" />
                                        </children>
                                     </HBox>
                                     <HBox prefHeight="30.0" prefWidth="200.0" />
