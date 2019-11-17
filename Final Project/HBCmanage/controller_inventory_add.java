@@ -24,7 +24,7 @@ public class controller_inventory_add extends class_global_vars{
 
     @FXML public void btn_inventory_save_action(){
         Stage stage = (Stage) btn_inventory_save.getScene().getWindow();
-        submit_user();
+        submit_item();
         stage.hide();
     }
     @FXML public void btn_inventory_cancel_action(){
@@ -49,7 +49,7 @@ public class controller_inventory_add extends class_global_vars{
         return conn;
     }
 
-    @FXML public void submit_user(){
+    @FXML public void submit_item(){
         String value_pn, value_desc, value_type;
         double value_price,value_cost;
         int value_qty;
@@ -89,6 +89,7 @@ public class controller_inventory_add extends class_global_vars{
 
     private void populateTypeList() {
         ObservableList<String> inventory_type_list = FXCollections.observableArrayList();
+        inventory_type_list.add("");
         inventory_type_list.add("Service");
         inventory_type_list.add("Part");
         inventory_type_list.add("Product");

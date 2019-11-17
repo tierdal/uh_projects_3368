@@ -23,19 +23,18 @@ import java.sql.*;
 
 
 public class controller_customers extends class_global_vars{
-    @FXML public TableColumn col_1,col_2,col_3,col_4,col_5;
+    @FXML public TableColumn col_1,col_2,col_3,col_4;
     private ObservableList<TableModel_CustomerData> customer_data;
     @FXML TableView customer_list;
-    @FXML JFXTextField filter_fname,filter_lname,filter_email;
+    @FXML JFXTextField filter_name,filter_phone,filter_email;
     @FXML JFXButton btn_customers_add, btn_customers_edit,btn_customers_delete,btn_customers_refresh,btn_customers_apply,btn_customers_clear,btn_customers_exit;
 
     @FXML private void initialize() {
 
         col_1.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_ID"));
-        col_2.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_FirstName"));
-        col_3.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_LastName"));
-        col_4.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_PhoneNumber"));
-        col_5.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_EmailAddress"));
+        col_2.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_Name"));
+        col_3.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_PhoneNumber"));
+        col_4.setCellValueFactory(new PropertyValueFactory<TableModel_CustomerData,String>("Customer_EmailAddress"));
 
         populateDataTable();
 
@@ -71,7 +70,7 @@ public class controller_customers extends class_global_vars{
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                customer_data.add(new TableModel_CustomerData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
+                customer_data.add(new TableModel_CustomerData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4)));
             }
             customer_list.setItems(customer_data);
             result_set.close();
@@ -84,7 +83,7 @@ public class controller_customers extends class_global_vars{
         Stage inventoryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("form_customers_add.fxml"));
         inventoryStage.setTitle("HBC Manage - Customers");
-        inventoryStage.setScene(new Scene(root, 300, 280));
+        inventoryStage.setScene(new Scene(root, 300, 220));
         inventoryStage.show();
     }
 
@@ -104,7 +103,7 @@ public class controller_customers extends class_global_vars{
             Stage customerStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("form_customers_edit.fxml"));
             customerStage.setTitle("HBC Manage - Customers - Edit");
-            customerStage.setScene(new Scene(root, 300, 280));
+            customerStage.setScene(new Scene(root, 300, 220));
             customerStage.show();
             }
     }
@@ -145,24 +144,24 @@ public class controller_customers extends class_global_vars{
     }
 
     @FXML public void updateDatatable(){
-        String fname = "", lname = "", email="";
+        String name = "", phone="", email="";
 
         customer_data = null;
         customer_data = FXCollections.observableArrayList();
 
-        fname = " Customer_FirstName LIKE '" + filter_fname.getText() + "%'";
-        lname = " AND Customer_LastName LIKE '" + filter_lname.getText() + "%'";
-        email = " Customer_EmailAddress LIKE '" + filter_email.getText() + "%'";
+        name = " Customer_Name LIKE '%" + filter_name.getText() + "%'";
+        phone = " AND Customer_PhoneNumber LIKE '" + filter_phone.getText() + "%'";
+        email = " AND Customer_EmailAddress LIKE '" + filter_email.getText() + "%'";
 
 
         Connection conn = this.connect_db();
-        String sql_main = "SELECT * FROM finalproject_customers WHERE" + fname + lname + email + " ORDER BY Customer_ID";
+        String sql_main = "SELECT * FROM finalproject_customers WHERE" + name + phone + email + " ORDER BY Customer_ID";
         System.out.println(sql_main);
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql_main);
             ResultSet result_set = preparedStatement.executeQuery();
             while (result_set.next()) {
-                customer_data.add(new TableModel_CustomerData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4),result_set.getString(5)));
+                customer_data.add(new TableModel_CustomerData(result_set.getInt(1),result_set.getString(2),result_set.getString(3),result_set.getString(4)));
             }
             customer_list.setItems(customer_data);
 
@@ -174,8 +173,8 @@ public class controller_customers extends class_global_vars{
     }
 
     @FXML private void clearFilters(){
-        filter_fname.setText("");
-        filter_lname.setText("");
+        filter_name.setText("");
+        filter_phone.setText("");
         filter_email.setText("");
         populateDataTable();
     }
